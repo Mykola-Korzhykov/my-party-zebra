@@ -1,2 +1,2 @@
-# my-party-zebra
-My Party Zebra | Web App for organization of children's parties.
+# My Party Zebra | Front-End (Next JS)
+Front-End part of web app My Party Zebra.
