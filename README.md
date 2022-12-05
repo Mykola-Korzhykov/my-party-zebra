@@ -1,2 +1,2 @@
-# My Party Zebra | Front-End (Next JS)
-Front-End part of web app My Party Zebra.
+# My Party Zebra | Back-End (Strapi)
+Back-End part of web app My Party Zebra.
