@@ -1,0 +1,31 @@
+{
+  "name": "my-party-zebra-strapi",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "dependencies": {
+    "@strapi/plugin-i18n": "4.5.3",
+    "@strapi/plugin-users-permissions": "4.5.3",
+    "@strapi/strapi": "4.5.3",
+    "better-sqlite3": "7.4.6",
+    "pg": "^8.8.0",
+    "strapi-plugin-populate-deep": "^1.1.2"
+  },
+  "author": {
+    "name": "Nikolay Korzhikov"
+  },
+  "strapi": {
+    "uuid": "959ac54d-5b87-4611-80f8-ac8563365acd"
+  },
+  "engines": {
+    "node": "16.17.0",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
