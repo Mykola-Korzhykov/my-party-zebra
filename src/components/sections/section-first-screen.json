@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_sections_section_first_screen_s",
+  "info": {
+    "displayName": "Section [First Screen]",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "button": {
+      "displayName": "Anchor",
+      "type": "component",
+      "repeatable": false,
+      "component": "buttons.anchor"
+    },
+    "colorTitle": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

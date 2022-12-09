@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_menu_items",
+  "info": {
+    "displayName": "Item"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

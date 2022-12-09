@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_buttons_anchors",
+  "info": {
+    "displayName": "Anchor",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "sectionId": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

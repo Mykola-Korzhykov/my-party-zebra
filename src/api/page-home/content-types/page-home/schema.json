@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_homes",
+  "info": {
+    "singularName": "page-home",
+    "pluralName": "page-homes",
+    "displayName": "Page [Home]",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "firstScreen": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.section-first-screen",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}
