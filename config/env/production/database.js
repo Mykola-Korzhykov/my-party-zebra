@@ -1,4 +1,5 @@
-module.exports = ({ env }) => ({
+// ---- PostgreSQL ----
+/* module.exports = ({ env }) => ({
     connection: {
       client: 'postgres',
       connection: {
@@ -10,4 +11,19 @@ module.exports = ({ env }) => ({
         ssl: env.bool(true)
       }
     }
+}); */
+
+// ---- MySQL ----
+module.exports = ({ env }) => ({
+  connection: {
+    client: 'mysql',
+    connection: {
+      host: env('MYSQLHOST', '127.0.0.1'),
+      port: env.int('MYSQLPORT', 7709),
+      database: env('MYSQLDATABASE', 'railway'),
+      user: env('MYSQLUSER', 'root'),
+      password: env('MYSQLPASSWORD', 'password'),
+      ssl: env.bool(true)
+    }
+  },
 });
