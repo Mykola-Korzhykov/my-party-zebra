@@ -1,4 +1,4 @@
-import UploadDTO from './UploadDTO';
+import UploadDTO from './uploadDTO';
 import IUpload from '@shared/interfaces/IUpload';
 
 class MetaDTO {

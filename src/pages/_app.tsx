@@ -4,7 +4,7 @@ import Head from 'next/head';
 import api from '@shared/http';
 
 import '../styles/globals.css'
-import MetaDTO from '@shared/dto/metaDto';
+import MetaDTO from '@shared/dto/metaDTO';
 
 type AppOwnProps = {metaData: any}
 

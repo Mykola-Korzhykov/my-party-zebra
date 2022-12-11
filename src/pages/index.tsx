@@ -22,7 +22,7 @@ const Home: NextPage<any> = ({content}) => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          {firstScreen.title} <a href="/">{firstScreen.colorTitle}</a>
+          {firstScreen.title} <a href="https://instagram.com/">{firstScreen.colorTitle}</a>
         </h1>
 
         <p className={styles.description}>
