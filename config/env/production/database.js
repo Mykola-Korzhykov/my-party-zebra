@@ -14,7 +14,7 @@
 }); */
 
 // ---- MySQL ----
-module.exports = ({ env }) => ({
+/* module.exports = ({ env }) => ({
   connection: {
     client: 'mysql',
     connection: {
@@ -25,5 +25,15 @@ module.exports = ({ env }) => ({
       password: env('MYSQLPASSWORD', 'password'),
       ssl: env.bool(true)
     }
+  },
+}); */
+
+module.exports = ({ env }) => ({
+  connection: {
+    client: 'sqlite',
+    connection: {
+      filename: path.join(__dirname, '..', env('DATABASE_FILENAME', '.tmp/data.db')),
+    },
+    useNullAsDefault: true,
   },
 });
