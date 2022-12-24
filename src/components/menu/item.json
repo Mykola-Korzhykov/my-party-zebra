@@ -1,7 +1,8 @@
 {
   "collectionName": "components_menu_items",
   "info": {
-    "displayName": "Item"
+    "displayName": "Item",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,9 +10,19 @@
       "type": "string",
       "required": true
     },
-    "link": {
+    "href": {
       "type": "string",
       "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "anchor",
+        "internal_link",
+        "external_link"
+      ],
+      "required": true,
+      "default": "anchor"
     }
   }
 }

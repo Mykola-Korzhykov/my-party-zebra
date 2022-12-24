@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_global_meta_for_pages",
+  "info": {
+    "displayName": "Meta for Page"
+  },
+  "options": {},
+  "attributes": {
+    "pageTitle": {
+      "type": "string",
+      "required": true
+    },
+    "preview": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

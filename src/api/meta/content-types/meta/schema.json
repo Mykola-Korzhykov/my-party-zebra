@@ -43,15 +43,6 @@
       "type": "string",
       "required": true
     },
-    "url": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": true
-    },
     "preview": {
       "type": "media",
       "multiple": false,
@@ -116,6 +107,15 @@
           "localized": false
         }
       }
+    },
+    "siteName": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "required": true
     }
   }
 }
