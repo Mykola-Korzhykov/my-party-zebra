@@ -28,7 +28,7 @@ const MenuItem: FC<Props> = ({text, href, type, toggleMenu}) => {
             </Link>}
 
             {type === 'external_link' &&
-            <a href={href} className={styles.link} target="_blank">{text}</a>}
+            <a href={href} className={styles.link} target="_blank" rel="noreferrer">{text}</a>}
 
             {type === 'anchor' &&
             <a href={href} className={styles.link} onClick={anchorHandleClick}>
