@@ -1,0 +1,79 @@
+/* ---- First Screen ---- */
+@import '@resources';
+
+.section {
+    @include first-screen-bg();
+    padding-top: 64px;
+    text-align: center;
+    padding-bottom: 0;
+
+    @include mq($tablet-large) {
+        padding-top: 48px;
+    }
+
+    @include mq($phablet) {
+        padding-top: 30px;
+    }
+
+    &:after {
+        content: '';
+    }
+}
+
+.wrapper {
+    width: 90%;
+    margin: 0 auto 1000px;
+}
+
+.title {
+    font-weight: 500;
+    line-height: 100%;
+
+    @include mq($tablet-large) {
+        line-height: 120%;
+    }
+
+    @include mq($phablet) {
+        line-height: 125%;
+    }
+}
+
+.colorTitle {
+    color: var(--theme-color);
+}
+
+.description {
+    @include font-size(36px);
+    color: $black-3;
+    margin-top: 15px;
+
+    @include mq($tablet-large) {
+        @include font-size(24px);
+    }
+
+    @include mq($phablet) {
+        @include font-size(18px);
+    }
+}
+
+.button {
+    @include font-size(28px);
+    font-weight: 500;
+    border-radius: 70px;
+    width: fit-content;
+    padding: 20px 50px;
+    margin: 45px auto 0;
+
+    @include mq($tablet-large) {
+        @include font-size(20px);
+        padding: 15px 40px;
+    }
+
+    @include mq($phablet) {
+        @include font-size(18px);
+    }
+
+    @include mq($phone) {
+        padding: 15px 24px;
+    }
+}

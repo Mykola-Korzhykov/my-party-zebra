@@ -1,0 +1,16 @@
+/* ---- Logo ---- */
+@import '@resources';
+
+.text {
+    @include font-size(28px);
+    @include transition();
+    font-weight: 700;
+
+    &:hover, &:active {
+        @include link-hover();
+    }
+
+    @include mq($tablet-large) {
+        @include font-size(22px);
+    }
+}

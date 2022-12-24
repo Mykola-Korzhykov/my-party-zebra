@@ -1,4 +1,11 @@
 /** @type {import('next').NextConfig} */
+const path = require('path');
+
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  register: true,
+  skipWaiting: true
+});
 
 const getLocales = async () => {
   const response = await fetch(`${process.env.API_URL}/i18n/locales`);
@@ -18,7 +25,7 @@ const getConfig = async () => {
   const localesCodes = await getLocalesCodes(localesList);
   const defaultLocaleCode = await getDefaultLocale(localesList);
 
-  return {
+  return withPWA({
     reactStrictMode: true,
     swcMinify: true,
     i18n: {
@@ -29,8 +36,51 @@ const getConfig = async () => {
     env: {
       API_URL: process.env.API_URL,
       UPLOADS_URL: process.env.UPLOADS_URL
+    },
+    webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        '@styles': path.resolve(__dirname, 'src/styles'),
+        '@resources': path.resolve(__dirname, 'src/styles/resources'),
+        '@variables': path.resolve(__dirname, 'src/styles/resources/variables'),
+        '@mixins': path.resolve(__dirname, 'src/styles/resources/mixins'),
+        '@rfs': path.resolve(__dirname, 'node_modules/rfs/scss')
+      }
+
+      return config;
+    },
+    async headers() {
+      return [
+        {
+          source: "/fonts/Zebra-Regular.woff2",
+          headers: [
+            {
+              key: "Cache-Control",
+              value: "public, max-age=31536000, immutable",
+            },
+          ],
+        },
+        {
+          source: "/fonts/Zebra-Medium.woff2",
+          headers: [
+            {
+              key: "Cache-Control",
+              value: "public, max-age=31536000, immutable",
+            },
+          ],
+        },
+        {
+          source: "/fonts/Zebra-Bold.woff2",
+          headers: [
+            {
+              key: "Cache-Control",
+              value: "public, max-age=31536000, immutable",
+            },
+          ],
+        }
+      ];
     }
-  }
+  })
 }
 
 module.exports = getConfig();

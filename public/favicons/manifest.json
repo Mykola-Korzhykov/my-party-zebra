@@ -1,0 +1,40 @@
+{
+    "short_name": "My Party Zebra",
+    "name": "My Party Zebra",
+    "lang": "en",
+    "description": "We will create a phenomenal event for your little one and plan your party from A to Z!",
+    "start_url": "/",
+    "scope": "/",
+    "background_color": "#F6F5EE",
+    "theme_color": "#BFB0E9",
+    "dir": "ltr",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "icons": [
+      {
+        "src": "app-icon.svg",
+        "type": "image/svg+xml",
+        "sizes": "512x512",
+        "purpose": "any"
+      },
+      {
+        "src": "app-icon.svg",
+        "type": "image/svg+xml",
+        "sizes": "512x512",
+        "purpose": "maskable"
+      },
+      {
+        "src": "app-icon-512.png",
+        "type": "image/png",
+        "sizes": "512x512",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "app-icon-192.png",
+        "type": "image/png",
+        "sizes": "192x192",
+        "purpose": "any maskable"
+      }
+    ],
+    "prefer_related_applications": false
+  }

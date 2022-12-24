@@ -1,0 +1,199 @@
+/* ---- Specification ---- */
+@include font('Zebra', 'Zebra-Regular', 400, 'normal');
+@include font('Zebra', 'Zebra-Medium', 500, 'normal');
+@include font('Zebra', 'Zebra-Bold', 700, 'normal');
+
+* {
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    scroll-margin-top: $section-gutter;
+
+    @include mq($phablet) {
+        scroll-margin-top: 100px;
+    }
+}
+
+body {
+    @include reset-indents();
+    background: $background-color;
+    font-family: $font-family;
+    @include font-size($font-size);
+    font-weight: $font-weight;
+    color: $font-color;
+    overflow-x: hidden !important;
+    padding-right: 0 !important;
+}
+
+section {
+    padding-bottom: $section-gutter;
+
+    @include mq($tablet) {
+        padding-bottom: 65px;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @include reset-indents();
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+}
+
+h1 {
+    @include font-size($h1-font-size);
+    line-height: 100%;
+
+    @include mq($tablet-large) {
+        @include font-size(40px)
+    }
+
+    @include mq($phablet) {
+        @include font-size(34px);
+    }
+}
+
+h2 {
+    @include font-size($h2-font-size);
+
+    @include mq($tablet) {
+        @include font-size(48px);
+    }
+
+    @include mq($phablet) {
+        @include font-size(35px);
+    }
+}
+
+h3 {
+    @include font-size($h3-font-size);
+}
+
+h4 {
+    @include font-size($h4-font-size);
+}
+
+p {
+    @include reset-indents();
+}
+
+a {
+    @include reset-indents();
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+ul, li {
+    @include reset-indents();
+    display: block;
+}
+
+img {
+    object-fit: cover;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input,
+button {
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+input {
+    @include transition();
+    padding: 14px 0 14px 14px;
+    background: $white-1;
+    border: 2px solid $white-1;
+
+    color: $black-1;
+
+    &::placeholder {
+        opacity: 0.7;
+    }
+
+    &:focus {
+        @include transition();
+        border-color: var(--theme-color);
+    }
+
+    &.wrong {
+        border-color: $red-color;
+    }
+}
+
+button {
+    &[disabled] {
+        @include transition();
+        opacity: 0.5;
+        cursor: default;
+        pointer-events: none;
+    }
+}
+
+.next-page[data-path="/"] #header {
+    @include first-screen-bg();
+}
+
+/* ---- Scroll ---- */
+::-webkit-scrollbar-track {
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+	background-color: var(--theme-color);
+}
+
+/* ---- Selection ---- */
+::selection {
+	@include selection();
+}
+
+::-moz-selection {
+	@include selection();
+}
+
+.container {
+    @include responsive-container();
+}
+
+.lock-scroll {
+    overflow: hidden !important;
+}
+
+.error_show {
+    @include fade(in);
+    opacity: 1 !important;
+}
+
+/* ---- Other ---- */
+.swal2-styled.swal2-confirm {
+    border-radius: 0 !important;
+    background-color: var(--theme-color) !important;
+}
+
+.swal2-icon.swal2-success .swal2-success-ring {
+    border-color: var(--theme-color) !important;
+}
+
+.swal2-icon.swal2-success [class^=swal2-success-line][class$=long],
+.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip] {
+    background-color: var(--theme-color) !important;
+}

@@ -1,52 +1,85 @@
 import { GetServerSideProps } from 'next';
+import { useEffect } from 'react';
 import App, { AppContext, AppInitialProps, AppProps } from 'next/app'
 import Head from 'next/head';
+
+import axios from 'axios';
 import api from '@shared/http';
 
-import '../styles/globals.css'
+import { Provider } from 'react-redux';
+import { DefaultSeo } from 'next-seo';
+import { useRouter } from 'next/router';
+
+import store from '@store/store';
+
+import IEnv from '@shared/interfaces/IEnv';
+import IMeta from '@shared/interfaces/Data/IMeta';
+import ILayout from '@shared/interfaces/Data/ILayout';
+import ILocale from '@shared/interfaces/ILocale';
 import MetaDTO from '@shared/dto/metaDTO';
 
-type AppOwnProps = {metaData: any}
+import Layout from '@components/layout/Layout';
 
-const CustomApp = ({Component, pageProps, metaData}: any) => {
-  const {title, description, themeColor, url,
-         preview, favicon, 
-         appleTouchIcon, appleTouchIcon152, appleTouchIcon167} = new MetaDTO(metaData);
+import '@styles/global.scss';
+
+interface AppOwnProps {
+  env: IEnv,
+  props: {
+    metaData: IMeta,
+    layoutData: ILayout
+    localesData: ILocale[]
+  }
+}
+
+const CustomApp = ({Component, pageProps, env, props}: AppOwnProps & AppProps) => {
+  const router = useRouter();
+
+  const {locale, pathname} = router;
+  const url = `${env.FRONTEND_URL}/${locale}${pathname}`;
+
+  const {metaData, layoutData, localesData} = props;
+  const {siteName, title, description, themeColor, preview, favicon, appleTouchIcon} = new MetaDTO(metaData);
+
+  useEffect(() => {
+    document.body.style.setProperty('--theme-color', themeColor);
+  });
 
   return (
     <>
       <Head>
-        {/* Meta base */}
-        <meta charSet="utf-8" />
-        <meta name="description" content={description} />
-        <meta name="theme-color" content={themeColor} />
+        {/* Theme Color */}
         <meta name="msapplication-navbutton-color" content={themeColor} />
         <meta name="apple-mobile-web-app-status-bar-style" content={themeColor} />
 
-        {/* Open Graph meta */}
-        <meta property="og:site_name" content={title} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={url} />
-        <meta property="og:image" content={preview.url} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+        {/* Manifest Site */}
+        <link rel="manifest" href="/favicons/manifest.json" />
 
-        {/* Twitter meta */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={preview.url} />
-
-        {/* Favicon */}
+        {/* Icons */}
         <link rel="apple-touch-icon" href={appleTouchIcon.url} />
-        <link rel="apple-touch-icon" href={appleTouchIcon152.url} sizes="152x152" />
-        <link rel="apple-touch-icon" href={appleTouchIcon167.url} sizes="167x167" />
-        <link rel="apple-touch-icon" href={appleTouchIcon.url} sizes="180x180" />
         <link rel="shortcut icon" href={favicon.url} />
       </Head>
-      <Component {...pageProps} />
+
+      <DefaultSeo
+        title="App"
+        titleTemplate={`%s | ${siteName}`}
+        description={description}
+        themeColor={themeColor}
+        openGraph={{
+          type: 'website',
+          images: [{url: preview.url, alt: preview.alt}],
+          title, description,
+          locale, url, siteName
+        }}
+        twitter={{
+          cardType: 'summary_large_image'
+        }}
+      />
+
+      <Provider store={store}>
+        <Layout data={{meta: metaData, layout: layoutData, locales: localesData}}>
+          <Component {...pageProps} />
+        </Layout>
+      </Provider>
     </>
   );
 };
@@ -58,10 +91,14 @@ CustomApp.getInitialProps = async (
 
   const {router} = context;
   const {locale} = router;
-
-  const metaData = await api.get(`/meta?locale=${locale}`);
   
-  return { ...appProps, metaData }
+  const locales = await axios.get(`${process.env.API_URL}/i18n/locales`);
+  
+  const localesData: ILocale[] = await locales.data;
+  const metaData: IMeta = await api.get(`/meta?locale=${locale}`);
+  const layoutData: ILayout = await api.get(`/layout?locale=${locale}`);
+  
+  return { ...appProps, env: process.env, props: {metaData, layoutData, localesData} }
 }
 
 export default CustomApp;

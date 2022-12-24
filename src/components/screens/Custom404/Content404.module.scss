@@ -1,0 +1,84 @@
+/* ---- Content 404 ---- */
+@import '@resources';
+
+.section {
+    text-align: center
+}
+
+.status {
+    font-size: 325px;
+    @include background('/img/404/zebra.png');
+    font-weight: 500;
+    position: relative;
+    color: var(--theme-color);
+    display: block;
+    width: 321px;
+    height: 352px;
+    margin: 0 auto 50px;
+
+    &:before,
+    &:after {
+        content: '4';
+        position: absolute;
+        top: 20%;
+    }
+
+    &:before {
+        right: calc(45% * 2);
+    }
+
+    &:after {
+        left: calc(40% * 2);
+    }
+
+    @include mq($tablet) {
+        width: 190px;
+        height: 208px;
+        font-size: 192px;
+
+        &:before,
+        &:after {
+            top: 40%;
+        }
+    }
+
+    @include mq($tablet) {
+        font-size: 140px;
+        margin: 0 auto 25px;
+    }
+}
+
+.title {
+    @include font-size(54px);
+    font-weight: 500;
+    color: var(--theme-color);
+    text-transform: uppercase;
+
+    @include mq($tablet) {
+        @include font-size(38px);
+    }
+}
+
+.description {
+    @include font-size(20px);
+    @include color-opacity($black-2, 0.5);
+    margin-top: 10px;
+
+    @include mq($tablet) {
+        @include font-size(16px);
+    }
+}
+
+.button {
+    @include font-size(20px);
+    width: fit-content;
+    background: var(--theme-color);
+    border-radius: 57px;
+    padding: 15px 62px;
+    margin: 40px auto 0;
+
+    @include mq($tablet) {
+        @include font-size(18px);
+        padding: 8px 36px;
+    }
+}

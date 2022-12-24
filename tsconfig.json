@@ -15,8 +15,14 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": "src/",
+    "strictNullChecks": false,
     "paths": {
+      "@components/*": ["components/*"],
+      "@helpers/*": ["helpers/*"],
+      "@hooks/*": ["hooks/*"],
+      "@pages/*": ["pages/*"],
       "@shared/*": ["shared/*"],
+      "@store/*": ["store/*"],
       "@styles/*": ["styles/*"],
     }
   },

@@ -1,0 +1,45 @@
+/* ---- Button ---- */
+@import '@resources';
+
+.default {
+    @include transition();
+    position: relative;
+    font-family: 'Zebra', sans-serif !important;
+    text-align: center;
+    cursor: pointer;
+
+    &:after {
+        @include transition();
+        @include fade(out);
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+    }
+
+    &:hover, &:active {
+        @include transition();
+    }
+
+    &:hover {
+        &:after {
+            @include fade(in);
+            background: rgba(255, 255, 255, 0.2);
+        }
+    }
+
+    &:active {
+        &:after {
+            @include fade(in);
+            background: rgba(0, 0, 0, 0.2);
+        }
+    }
+}
+
+.theme {
+    background: var(--theme-color);
+    color: #fff;
+}
