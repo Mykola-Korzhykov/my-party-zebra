@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_sections_section_services_s",
+  "info": {
+    "displayName": "Section [Services]",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "sectionTitle": {
+      "type": "string",
+      "required": true,
+      "default": "Services"
+    },
+    "list": {
+      "displayName": "Services",
+      "type": "component",
+      "repeatable": true,
+      "component": "services.services",
+      "required": true
+    },
+    "sectionId": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

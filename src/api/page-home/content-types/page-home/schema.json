@@ -35,6 +35,17 @@
       },
       "type": "string",
       "required": true
+    },
+    "services": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "sections.section-services",
+      "required": true
     }
   }
 }
