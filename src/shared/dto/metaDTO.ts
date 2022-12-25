@@ -1,19 +1,21 @@
 import UploadDTO from './uploadDTO';
+
+import IUploadInfo from '@shared/interfaces/IUploadInfo';
 import IUpload from '@shared/interfaces/IUpload';
+import IMeta from '@shared/interfaces/Data/IMeta';
 
 class MetaDTO {
-    siteName: string;
-    title: string;
-    description: string;
-    themeColor: string;
+    siteName;
+    title;
+    description;
+    themeColor;
     preview: IUpload;
     favicon: IUpload;
     appleTouchIcon: IUpload;
 
-    constructor(metaData: any) {
+    constructor(metaData: IMeta) {
         const {siteName, title, description, themeColor} = metaData;
-        const {preview, favicon} = metaData;
-        const {appleTouchIcon, appleTouchIcon152, appleTouchIcon167} = metaData;
+        const {preview, favicon, appleTouchIcon} = metaData;
 
         this.siteName = siteName;
         this.title = title;

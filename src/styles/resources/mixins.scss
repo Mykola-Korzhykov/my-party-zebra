@@ -162,7 +162,7 @@
 
 /* -- Menu Top Calculate -- */
 @mixin menu-top-calc() {
-	$margin: 22px;
+	$margin: 26px;
 
 	top: calc(($header-padding-desktop-gutter * 2) + $margin);
 

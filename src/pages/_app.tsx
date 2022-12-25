@@ -57,6 +57,11 @@ const CustomApp = ({Component, pageProps, env, props}: AppOwnProps & AppProps) =
         {/* Icons */}
         <link rel="apple-touch-icon" href={appleTouchIcon.url} />
         <link rel="shortcut icon" href={favicon.url} />
+
+        {/* Fonts */}
+        <link rel="preload" href="/fonts/Zebra-Regular.woff2" as="font" type="font/woff2" crossOrigin="true" />
+        <link rel="preload" href="/fonts/Zebra-Medium.woff2" as="font" type="font/woff2" crossOrigin="true" />
+        <link rel="preload" href="/fonts/Zebra-Bold.woff2" as="font" type="font/woff2" crossOrigin="true" />
       </Head>
 
       <DefaultSeo

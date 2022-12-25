@@ -46,6 +46,12 @@
         font-size: 140px;
         margin: 0 auto 25px;
     }
+    
+    @include mq($phablet) {
+        &:before {
+            right: calc(43% * 2);
+        }
+    }
 }
 
 .title {
@@ -79,6 +85,6 @@
 
     @include mq($tablet) {
         @include font-size(18px);
-        padding: 8px 36px;
+        padding: 15px 30px;
     }
 }

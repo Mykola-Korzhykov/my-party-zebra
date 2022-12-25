@@ -9,6 +9,7 @@ import MetaHead from '@components/MetaHead'
 import api from '@shared/http';
 
 import FirstScreen from '@components/screens/home/FirstScreen/FirstScreen';
+import Services from '@components/screens/home/Services/Services'
 
 export const getStaticProps: GetStaticProps = async ({locale}) => {
   const pageContent = await api.get(`/page-home?locale=${locale}`);
@@ -16,12 +17,14 @@ export const getStaticProps: GetStaticProps = async ({locale}) => {
 }
 
 const Home: NextPage<any> = ({content}) => {
-  const {pageTitle, firstScreen} = content;
+  const {pageTitle, firstScreen, services} = content;
 
   return (
    <>
     <NextSeo title={pageTitle} openGraph={{title: firstScreen.title, description: firstScreen.description}} />
+
     <FirstScreen data={firstScreen} />
+    <Services data={services} />
    </>
   )
 }

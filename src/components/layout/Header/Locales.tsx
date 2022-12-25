@@ -41,9 +41,9 @@ const Locales: FC<Props> = ({locales, isMenuOpen, toggleMenu}) => {
                 <li className={`${styles.localesItem} ${locale === code ? styles.localesItemActive : ''}`} 
                     onClick={() => localeHandleClick(code)}
                     style={{width: index === locales.length - 1 && index % 2 === 0 ? '100%' : '50%'}} key={index}>
-                    <a>
+                    <p>
                         {windowSize.width < 993 ? name.split(' ')[0] : name.split(' ')[0].slice(0, 3)}
-                    </a>
+                    </p>
                 </li>
             ))}
         </ul>

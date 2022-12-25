@@ -28,6 +28,7 @@ const getConfig = async () => {
   return withPWA({
     reactStrictMode: true,
     swcMinify: true,
+    images: {domains: ['localhost', 'panel.mypartyzebra.com', 'mypartyzebra.com']},
     i18n: {
       locales: localesCodes,
       defaultLocale: defaultLocaleCode,
