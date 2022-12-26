@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_some_list_buttons",
+  "info": {
+    "displayName": "Buttons",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "gallery": {
+      "displayName": "Gallery Button",
+      "type": "component",
+      "repeatable": false,
+      "component": "some-list.gallery-button",
+      "required": true
+    },
+    "book": {
+      "displayName": "Book Button",
+      "type": "component",
+      "repeatable": false,
+      "component": "some-list.book-button"
+    }
+  }
+}

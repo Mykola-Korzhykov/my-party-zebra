@@ -46,6 +46,17 @@
       },
       "component": "sections.section-services",
       "required": true
+    },
+    "features": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "sections.section-features",
+      "required": true
     }
   }
 }

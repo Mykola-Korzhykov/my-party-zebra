@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_services_features_lists",
+  "info": {
+    "displayName": "Features List",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "link": {
+      "type": "enumeration",
+      "enum": [
+        "gallery",
+        "book"
+      ],
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

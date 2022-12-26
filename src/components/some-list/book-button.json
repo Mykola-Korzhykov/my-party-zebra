@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_some_list_book_buttons",
+  "info": {
+    "displayName": "Book Button"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true,
+      "default": "/book"
+    }
+  }
+}

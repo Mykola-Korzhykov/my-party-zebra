@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_some_list_gallery_buttons",
+  "info": {
+    "displayName": "Gallery Button"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "default": "#party-mood",
+      "required": true
+    }
+  }
+}
