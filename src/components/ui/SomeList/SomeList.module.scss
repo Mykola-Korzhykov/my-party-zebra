@@ -1,0 +1,153 @@
+/* ---- Some List ---- */
+@import '@resources';
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+
+    @include mq($tablet) {
+        grid-template-columns: repeat(1, 0.8fr);
+        justify-content: center
+    }
+}
+
+.sectionTitleItem {
+    @include flexible();
+    justify-content: center;
+}
+
+.sectionTitle {
+    @include font-size(83px);
+    font-weight: 500;
+
+    @include mq($tablet-large) {
+        @include font-size(48px);
+    }
+}
+
+.item {
+    background: $gray-1;
+    padding: 40px 30px;
+    border-radius: 5px;
+
+    @include mq($tablet-large) {
+        padding: 24px;
+    }
+
+    @include mq(345) {
+        padding: 24px 15px;
+    }
+}
+
+.wrapper {
+    @include flexible();
+}
+
+.image {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    pointer-events: none;
+
+    & img {
+        border-radius: 40px;
+    }
+
+    @include mq($tablet-large) {
+        width: 110px;
+        height: 110px;
+
+        & img {
+            border-radius: 30px;
+        }
+    }
+
+    @include mq(345) {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+.overlay {
+    @include full-stretch();
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 40px;
+}
+
+.index {
+    @include center-element();
+    @include font-size(70px);
+    top: 55%;
+    font-weight: 700;
+    color: $gray-1;
+
+    @include mq($tablet-large) {
+        @include font-size(54px);
+        font-weight: 500;
+    }
+}
+
+.content {
+    max-width: 50%;
+    margin-left: 30px;
+
+    @include mq($tablet) {
+        max-width: 60%;
+    }
+
+    @include mq($phablet) {
+        margin-left: 20px;
+    }
+}
+
+.title {
+    font-weight: 700;
+
+    @include mq($tablet-large) {
+        @include font-size(20px);
+        font-weight: 500;
+    }
+}
+
+.description {
+    @include font-size(20px);
+    @include color-opacity($black-1, 0.4);
+    font-weight: 400;
+    margin-top: 10px;
+
+    @include mq($tablet-large) {
+        @include font-size(16px);
+    }
+}
+
+.link,
+.linkTablet {
+    @include font-size(20px);
+    @include transition();
+    font-weight: 400;
+    margin-top: 20px;
+
+    &:hover {
+        @include link-hover();
+    }
+
+    @include mq($tablet-large) {
+        @include font-size(18px);
+    }
+}
+
+.link {
+    @include mq($laptop) {
+        display: none;
+    }
+}
+
+.linkTablet {
+    display: none;
+    margin-top: 24px;
+
+    @include mq($laptop) {
+        display: block;
+    }
+}

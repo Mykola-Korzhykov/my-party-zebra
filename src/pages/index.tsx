@@ -10,14 +10,17 @@ import api from '@shared/http';
 
 import FirstScreen from '@components/screens/home/FirstScreen/FirstScreen';
 import Services from '@components/screens/home/Services/Services'
+import SomeList from '@components/ui/SomeList/SomeList'
 
 export const getStaticProps: GetStaticProps = async ({locale}) => {
   const pageContent = await api.get(`/page-home?locale=${locale}`);
-  return {props: {content: pageContent}};
+  const someList = await api.get(`/some-list-button?locale=${locale}`);
+
+  return {props: {content: pageContent, someList}};
 }
 
-const Home: NextPage<any> = ({content}) => {
-  const {pageTitle, firstScreen, services} = content;
+const Home: NextPage<any> = ({content, someList}) => {
+  const {pageTitle, firstScreen, services, features} = content;
 
   return (
    <>
@@ -25,6 +28,7 @@ const Home: NextPage<any> = ({content}) => {
 
     <FirstScreen data={firstScreen} />
     <Services data={services} />
+    <SomeList data={features} buttons={someList.buttons} />
    </>
   )
 }

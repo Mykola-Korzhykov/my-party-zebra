@@ -162,7 +162,7 @@
 
 /* -- Menu Top Calculate -- */
 @mixin menu-top-calc() {
-	$margin: 26px;
+	$margin: 22px;
 
 	top: calc(($header-padding-desktop-gutter * 2) + $margin);
 
@@ -176,13 +176,13 @@
 }
 
 @mixin menu-top-calc-minus() {
-	top: calc(($header-padding-desktop-gutter * 2) * -1);
+	top: calc(($header-padding-desktop-gutter * 2) * -1) + 4px;
 
     @include mq($tablet) {
-        top: calc(($header-padding-tablet-gutter * 2) * -1);
+        top: calc(($header-padding-tablet-gutter * 2) * -1) + 2px;
     }
 
     @include mq($phablet) {
-        top: calc(($header-padding-phablet-gutter * 2) * -1);
+        top: calc(($header-padding-phablet-gutter * 2) * -1) - 2px;
     }
 }

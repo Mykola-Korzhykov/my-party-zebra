@@ -1,4 +1,4 @@
-import IUploadInfo from '../IUploadInfo';
+import { IUploadFull } from "../IUpload";
 
 export default interface IMeta {
     siteName: string;
@@ -6,9 +6,9 @@ export default interface IMeta {
     description: string;
     themeColor: string;
     locale: string;
-    preview: IUploadInfo,
-    appleTouchIcon: IUploadInfo,
-    appleTouchIcon152: IUploadInfo;
-    appleTouchIcon167: IUploadInfo;
-    favicon: IUploadInfo;
+    preview: IUploadFull,
+    appleTouchIcon: IUploadFull,
+    appleTouchIcon152: IUploadFull;
+    appleTouchIcon167: IUploadFull;
+    favicon: IUploadFull;
 }

@@ -1,4 +1,4 @@
-import IUpload from '@shared/interfaces/IUpload';
+import { IUpload } from '@shared/interfaces/IUpload';
 
 export default interface IServicesItem {
     title: string;

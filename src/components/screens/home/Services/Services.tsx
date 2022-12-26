@@ -1,22 +1,22 @@
 import { FC } from 'react';
 
+import { IUploadFull } from '@shared/interfaces/IUpload';
 import IServicesItem from '@shared/interfaces/Data/Home/IServicesItem';
-import IUploadInfo from '@shared/interfaces/IUploadInfo';
 import UploadDTO from '@shared/dto/uploadDTO';
 
 import ServicesList from './ServicesList';
 
 import styles from './Services.module.scss';
 
+type IFullServicesItem = Pick<IServicesItem, Exclude<keyof IServicesItem, 'image'>> & {
+    image: IUploadFull;
+}
+
 type Props = {
     data: {
         sectionTitle: string;
         sectionId: string;
-        list: {
-            title: string;
-            href: string;
-            image: IUploadInfo
-        }[];
+        list: IFullServicesItem[]
     };
 }
 

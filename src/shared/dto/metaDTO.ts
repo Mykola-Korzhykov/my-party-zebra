@@ -1,7 +1,6 @@
 import UploadDTO from './uploadDTO';
 
-import IUploadInfo from '@shared/interfaces/IUploadInfo';
-import IUpload from '@shared/interfaces/IUpload';
+import { IUpload } from '@shared/interfaces/IUpload';
 import IMeta from '@shared/interfaces/Data/IMeta';
 
 class MetaDTO {

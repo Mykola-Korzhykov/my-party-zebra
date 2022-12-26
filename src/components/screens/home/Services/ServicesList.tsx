@@ -3,7 +3,7 @@ import Image from 'next/legacy/image';
 import Link from 'next/link';
 
 import IServicesItem from '@shared/interfaces/Data/Home/IServicesItem';
-import IUpload from '@shared/interfaces/IUpload';
+import { IUpload } from '@shared/interfaces/IUpload';
 
 import splitString from '@helpers/splitString';
 
@@ -27,7 +27,7 @@ const ServicesList: FC<Props> = ({list}) => {
                     <div className={styles.content}>
                         <h4 className={styles.title}>
                             {splitString(title)[0]} 
-                            <span style={{color: colors[index]}}>
+                            <span style={{color: colors[index % colors.length]}}>
                                 {splitString(title)[1]}
                             </span>
                         </h4>

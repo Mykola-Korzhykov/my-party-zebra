@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { NextSeo } from 'next-seo';
 import Head from 'next/head';
-import IUpload from '@shared/interfaces/IUpload';
+import { IUpload } from '@shared/interfaces/IUpload';
 
 type Props = {
     pageTitle: string;
