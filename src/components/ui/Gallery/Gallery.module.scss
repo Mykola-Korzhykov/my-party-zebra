@@ -1,0 +1,122 @@
+/* ---- Gallery ---- */
+@import '@resources';
+
+.sectionRow {
+    @include flexible();
+    justify-content: space-between;
+}
+
+.sectionTitle {
+    font-weight: 500;
+
+    @include mq($tablet-large) {
+        @include font-size(32px);
+    }
+
+    @include mq($phablet) {
+        @include font-size(28px);
+    }
+}
+
+.buttons {
+    @include flexible();
+}
+
+.prevSlide,
+.nextSlide {
+    @include transition();
+    position: relative;
+    display: block;
+    width: 54px;
+    height: 54px;
+    background: none;
+    border-radius: 50%;
+    border: 1.5px solid var(--theme-color);
+    cursor: pointer;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: 32px;
+        height: 32px;
+        transform: translate(-50%, -50%);
+        @include transition();
+    }
+
+    &:hover {
+        @include transition();
+        background: var(--theme-color);
+    }
+
+    &[disabled] {
+        @include transition();
+        opacity: 0.5;
+        cursor: default;
+    }
+}
+
+.prevSlide {
+    margin-right: 30px;
+
+    &:before {
+        @include background('/img/gallery/previous-icon.svg');
+    }
+
+    &:after {
+        @include background('/img/gallery/previous-icon-hover.svg');
+        @include fade(out);
+    }
+
+    &:hover {
+        &:before {@include fade(out)}
+        &:after {@include fade(in)}
+    }
+
+    @include mq($phablet) {
+        margin-right: 15px;
+    }
+}
+
+.nextSlide {
+    &:before {
+        @include background('/img/gallery/next-icon.svg');
+    }
+
+    &:after {
+        @include background('/img/gallery/next-icon-hover.svg');
+        @include fade(out);
+    }
+
+    &:hover {
+        &:before {@include fade(out)}
+        &:after {@include fade(in)}
+    }
+}
+
+.slides {
+    width: 100% !important;
+    margin-top: 30px;
+}
+
+.image {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+
+    & img {
+        object-fit: cover;
+        border-radius: 40px;
+    }
+
+    @include mq($tablet-large) {
+        height: 30vh;
+    }
+
+    @include mq($phablet) {
+        height: 30vh;
+    }
+}

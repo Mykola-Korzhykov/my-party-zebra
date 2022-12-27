@@ -5,10 +5,14 @@
     @include first-screen-bg();
     padding-top: 64px;
     text-align: center;
-    padding-bottom: 0;
+    padding-bottom: $section-gutter;
 
     @include mq($tablet-large) {
         padding-top: 48px;
+    }
+
+    @include mq($tablet) {
+        padding-bottom: 65px;
     }
 
     @include mq($phablet) {

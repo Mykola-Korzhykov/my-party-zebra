@@ -8,6 +8,10 @@ export interface IUploadFull {
     }
 }
 
+export interface IUploadFullWithoutData extends Pick<IUploadFull, 'data'> {
+    attributes: IUploadFull['data']['attributes'];
+}
+
 export interface IUpload {
     url: string;
     alt: string;

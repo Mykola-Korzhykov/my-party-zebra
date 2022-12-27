@@ -28,7 +28,7 @@ body {
 section {
     padding-bottom: $section-gutter;
 
-    @include mq($tablet) {
+    @include mq($tablet-large) {
         padding-bottom: 65px;
     }
 }

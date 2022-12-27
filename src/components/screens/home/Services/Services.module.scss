@@ -1,14 +1,6 @@
 /* ---- Services ---- */
 @import '@resources';
 
-.section {
-    padding-top: $section-gutter;
-
-    @include mq($tablet) {
-        padding-top: 65px;
-    }
-}
-
 .sectionTitle {
     font-weight: 700;
     text-align: center;
