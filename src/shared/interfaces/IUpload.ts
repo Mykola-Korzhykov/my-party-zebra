@@ -1,6 +1,6 @@
 export interface IUploadFull {
-    data: {
-        attributes: {
+    data?: {
+        attributes?: {
             hash: string;
             ext: string;
             alternativeText: string;
