@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_sections_section_age_groups_s",
+  "info": {
+    "displayName": "Section [Age Groups]",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "sectionTitle": {
+      "type": "string",
+      "required": true
+    },
+    "sectionId": {
+      "type": "string",
+      "required": true
+    },
+    "list": {
+      "displayName": "Age Groups List",
+      "type": "component",
+      "repeatable": true,
+      "component": "services.age-groups-list"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "buttons.anchor",
+      "required": true
+    }
+  }
+}

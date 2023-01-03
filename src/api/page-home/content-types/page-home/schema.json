@@ -57,6 +57,17 @@
       },
       "component": "sections.section-features",
       "required": true
+    },
+    "ageGroups": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "sections.section-age-groups",
+      "required": true
     }
   }
 }
