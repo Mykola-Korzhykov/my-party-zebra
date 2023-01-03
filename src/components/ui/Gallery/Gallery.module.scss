@@ -120,3 +120,14 @@
         height: 30vh;
     }
 }
+
+@media (hover: none) {
+    .prevSlide, .nextSlide {
+        &:hover {
+            background: none;
+            
+            &:before {@include fade(in)}
+            &:after {@include fade(out)}
+        }
+    }
+}

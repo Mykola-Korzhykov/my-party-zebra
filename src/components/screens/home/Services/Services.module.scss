@@ -12,12 +12,9 @@
     gap: 30px;
     margin-top: 30px;
 
-    @include mq($tablet-large) {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
     @include mq($tablet + 100) {
-        grid-template-columns: repeat(4, rem(200));
+        display: flex;
+        align-items: stretch;
         overflow-x: scroll;
 
         &::-webkit-scrollbar {
@@ -35,6 +32,10 @@
     &:hover {
         @include transition();
         opacity: 0.8;
+    }
+
+    @include mq($tablet + 100) {
+        min-width: rem(200);
     }
 }
 

@@ -3,6 +3,8 @@ import Link from 'next/link';
 
 import { ISomeListButtons } from '@shared/interfaces/Data/ISomeList';
 
+import anchorClick from '@helpers/anchorClick';
+
 import styles from './SomeList.module.scss';
 
 type Props = {
@@ -19,17 +21,18 @@ const SomeListLinks: FC<Props> = ({link, buttons, index, className}) => {
         <>
             {link === 'gallery' && 
                 <a href={buttons.gallery.href} 
-                    className={className} 
-                    style={{color: colors[index % colors.length]}}>
-                    {buttons.gallery.text}
+                   className={className} 
+                   style={{color: colors[index % colors.length]}}
+                   onClick={e => anchorClick(e)}>
+                   {buttons.gallery.text}
                 </a>
             }
 
             {link === 'book' && 
                 <Link href={buttons.book.href} legacyBehavior>
                     <a className={className} 
-                        style={{color: colors[index % colors.length]}}>
-                        {buttons.book.text}
+                       style={{color: colors[index % colors.length]}}>
+                       {buttons.book.text}
                     </a>
                 </Link>
             }
