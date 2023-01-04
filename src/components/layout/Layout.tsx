@@ -45,7 +45,7 @@ const Layout: FC<Props> = ({data, children}) => {
                 setIsSticky(false);
             }
         });
-    }, []);
+    }, [dispatch]);
 
     return (
         <div className="next-page" data-path={pathname}>

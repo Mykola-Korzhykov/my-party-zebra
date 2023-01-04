@@ -44,7 +44,7 @@ const Guarantees: FC<Props> = ({data}) => {
                     {list.map(({title, description, icon}, index) => (
                         <li className={styles.item} key={index}>
                             <div className={styles.image}>
-                                <Image src={icons[icon]} blurDataURL={icons[icon]} placeholder="blur" layout="fill" />
+                                <Image src={icons[icon]} blurDataURL={icons[icon]} alt="Icon" placeholder="blur" layout="fill" />
                             </div>
 
                             <h4 className={styles.title}>{title}</h4>

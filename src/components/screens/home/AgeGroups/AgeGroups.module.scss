@@ -31,7 +31,7 @@
     padding: 30px;
 
     @include mq($tablet) {
-        min-width: 235px;
+        min-width: rem(235);
     }
 }
 

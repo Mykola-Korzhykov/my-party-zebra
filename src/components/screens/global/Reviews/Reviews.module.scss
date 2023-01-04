@@ -1,0 +1,106 @@
+/* ---- Reviews ---- */
+@import '@resources';
+
+.sectionRow {
+    @include flexible();
+    justify-content: space-between;
+
+    @include mq($phablet) {
+        flex-direction: column;
+    }
+}
+
+.sectionTitle {
+    font-weight: 500;
+
+    @include mq($phablet) {
+        text-align: center;
+    }
+}
+
+.button,
+.buttonMobile {
+    @include font-size(20px);
+    font-weight: 400;
+    width: fit-content;
+    padding: 10px 35px;
+    border-radius: 48px;
+}
+
+.button {
+    @include mq($phablet) {
+        display: none;
+    }
+}
+
+.buttonMobile {
+    display: none;
+    margin: 32px auto 0;
+
+    @include mq($phablet) {
+        display: block;
+    };
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+
+    @include mq($tablet-large) {
+        display: flex;
+        align-items: stretch;
+        overflow-x: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: $gray-1;
+    padding: 20px;
+    border-radius: 5px;
+
+    @include mq($tablet-large) {
+        min-width: rem(235);
+    }
+}
+
+.title {
+    font-weight: 400;
+
+    @include mq($tablet-large) {
+        @include font-size(20px);
+    }
+}
+
+.text {
+    @include font-size(20px);
+    @include color-opacity($black-1, 0.4);
+    margin-top: 10px;
+
+    @include mq($tablet-large) {
+        @include font-size(16px);
+    }
+}
+
+.link {
+    @include font-size(20px);
+    font-weight: 400;
+    color: var(--theme-color);
+    margin-top: 15px;
+
+    &:hover {
+        @include link-hover();
+    }
+
+    @include mq($tablet-large) {
+        @include font-size(16px);
+    }
+}
