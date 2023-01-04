@@ -34,7 +34,7 @@ const Button: FC<Props> = ({type, text, href = '#', variety = '', customClass = 
             </a>}
             
             {type === 'link' &&
-            <Link href={href} legacyBehavior>
+            <Link href={href ?? ''} legacyBehavior>
                 <a className={style}>{text}</a>
             </Link>}
         </div>

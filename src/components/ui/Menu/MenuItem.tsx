@@ -23,7 +23,7 @@ const MenuItem: FC<Props> = ({text, href, type, toggleMenu}) => {
     return (
         <li className={styles.item}>
             {type === 'internal_link' &&
-            <Link href={href} legacyBehavior>
+            <Link href={href ?? ''} legacyBehavior>
                 <a className={styles.link}>{text}</a>
             </Link>}
 

@@ -29,7 +29,7 @@ const SomeListLinks: FC<Props> = ({link, buttons, index, className}) => {
             }
 
             {link === 'book' && 
-                <Link href={buttons.book.href} legacyBehavior>
+                <Link href={buttons.book.href ?? ''} legacyBehavior>
                     <a className={className} 
                        style={{color: colors[index % colors.length]}}>
                        {buttons.book.text}

@@ -31,7 +31,7 @@ const ServicesList: FC<Props> = ({list}) => {
                                 {splitString(title)[1]}
                             </span>
                         </h4>
-                        <Link href={href} className={styles.link} />
+                        <Link href={href ?? ''} className={styles.link} />
                     </div>
                 </li>
             ))}
