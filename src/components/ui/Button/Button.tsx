@@ -8,13 +8,12 @@ type Props = {
     variety?: string,
     text: string,
     href?: string,
-    locale?: string,
     customClass?: string,
     handleClick?: MouseEventHandler<HTMLButtonElement>
     disabled?: boolean
 }
 
-const Button: FC<Props> = ({type, variety = '', text, href = '#', locale, handleClick, disabled, customClass = ''}) => {
+const Button: FC<Props> = ({type, text, href = '#', variety = '', customClass = '', handleClick, disabled}) => {
     const style = `${styles.default} ${styles[variety]} ${customClass}`;
 
     return (

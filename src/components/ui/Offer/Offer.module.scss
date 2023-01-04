@@ -1,0 +1,136 @@
+/* ---- Offer ---- */
+@import '@resources';
+
+.section {
+    @include flexible();
+    background: var(--theme-color);
+    color: #fff;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    padding-right: calc((100vw - $container-default-width) / 2);
+
+    @include mq($desktop) {
+        $gutter: $container-desktop-gutter + px;
+        padding-right: $gutter;
+    }
+
+    @include mq($laptop) {
+        $gutter: $container-laptop-gutter + px;
+        padding-right: $gutter;
+    }
+
+    @include mq($tablet-large) {
+        $gutter: $container-tablet-large-gutter + px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: $gutter;
+        padding-right: $gutter;
+
+        flex-direction: column;
+    }
+
+    @include mq($tablet) {
+        $gutter: $container-tablet-gutter + px;
+        padding-left: $gutter;
+        padding-right: $gutter;
+    }
+
+    @include mq($phablet) {
+        $gutter: $container-phablet-gutter + px;
+        padding-left: $gutter;
+        padding-right: $gutter;
+    }
+}
+
+.content {
+    width: 55%;
+    margin-left: auto;
+
+    @include mq($tablet-large) {
+        width: 100%;
+        text-align: center;
+        margin: 32px auto 0;
+    }
+}
+
+.title {
+    @include font-size(42px);
+    font-weight: 700;
+    margin-bottom: 10px;
+
+    @include mq($phablet) {
+        @include font-size(26px);
+        font-weight: 500;
+    }
+}
+
+.text {
+    @include font-size(26px);
+    @include color-opacity(#fff, 0.4);
+    font-weight: 400;
+
+    &:not(:first-of-type) {
+        margin-top: 30px;
+    }
+
+    @include mq($phablet) {
+        @include font-size(18px);
+        font-weight: 500;
+    }
+}
+
+.button {
+    @include font-size(24px);
+    width: fit-content;
+    border-radius: 70px;
+    padding: 20px 50px;
+    margin-top: 50px;
+
+    @include mq($tablet-large) {
+        margin: 50px auto 0;
+    }
+
+    @include mq($phablet) {
+        @include font-size(20px);
+        padding: 16px 40px;
+    }
+
+    @include mq($phone) {
+        @include font-size(16px);
+    }
+}
+
+.image {
+    position: relative;
+    left: -50px;
+    width: rem(710);
+    height: rem(570);
+
+    @include mq(1300) {
+        width: rem(510);
+        height: rem(440);
+    }
+
+    @include mq($tablet-large) {
+        left: 0;
+        width: rem(600);
+        height: rem(500);
+        margin: 0 auto;
+    }
+
+    @include mq($tablet) {
+        width: rem(500);
+        height: rem(400);
+    }
+
+    @include mq($phablet) {
+        width: rem(400);
+        height: rem(340);
+    }
+
+    @include mq($phone) {
+        width: rem(270);
+        height: rem(230);
+    }
+}
