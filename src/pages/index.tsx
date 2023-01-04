@@ -10,21 +10,23 @@ import api from '@shared/http';
 
 import FirstScreen from '@components/screens/home/FirstScreen/FirstScreen';
 import Services from '@components/screens/home/Services/Services'
-import SomeList from '@components/ui/SomeList/SomeList'
-import Gallery from '@components/ui/Gallery/Gallery'
+import SomeList from '@components/screens/global/SomeList/SomeList'
+import Gallery from '@components/screens/global/Gallery/Gallery'
 import AgeGroups from '@components/screens/home/AgeGroups/AgeGroups'
-import Offer from '@components/ui/Offer/Offer'
+import Offer from '@components/screens/global/Offer/Offer'
+import Guarantees from '@components/screens/global/Guarantees/Guarantees'
 
 export const getStaticProps: GetStaticProps = async ({locale}) => {
   const pageContent = await api.get(`/page-home?locale=${locale}`);
   const someList = await api.get(`/some-list-button?locale=${locale}`);
   const gallery = await api.get(`/gallery?locale=${locale}`);
   const offer = await api.get(`/offer?locale=${locale}`);
+  const guarantees = await api.get(`/guarantee?locale=${locale}`);
 
-  return {props: {content: pageContent, someList, gallery, offer}};
+  return {props: {content: pageContent, someList, gallery, offer, guarantees}};
 }
 
-const Home: NextPage<any> = ({content, someList, gallery, offer}) => {
+const Home: NextPage<any> = ({content, someList, gallery, offer, guarantees}) => {
   const {pageTitle, firstScreen, services, features, ageGroups} = content;
 
   return (
@@ -36,7 +38,8 @@ const Home: NextPage<any> = ({content, someList, gallery, offer}) => {
     <SomeList data={features} buttons={someList.buttons} />
     <Gallery data={gallery} />
     <AgeGroups data={ageGroups} />
-    <Offer data={offer} />
+    <Offer data={offer.content} />
+    <Guarantees data={guarantees} />
    </>
   )
 }

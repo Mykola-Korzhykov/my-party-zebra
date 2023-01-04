@@ -1,0 +1,57 @@
+/* ---- Guarantees ---- */
+@import '@resources';
+
+.section {
+    padding-top: 80px;
+}
+
+.sectionTitle {
+    font-weight: 500;
+    text-align: center;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+
+    @include mq($tablet-large) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mq($phablet) {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 48px;
+    }
+}
+
+.item {
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.image {
+    position: relative;
+    width: rem(50);
+    height: rem(50);
+    margin: 0 auto 15px;
+}
+
+.title {
+    margin-bottom: 10px;
+
+    @include mq($tablet-large) {
+        @include font-size(20px);
+        font-weight: 500;
+    }
+}
+
+.description {
+    @include font-size(20px);
+    @include color-opacity($black-1, 0.4);
+
+    @include mq($tablet-large) {
+        @include font-size(16px);
+    }
+}

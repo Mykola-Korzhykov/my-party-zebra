@@ -17,6 +17,7 @@
     "baseUrl": "src/",
     "strictNullChecks": false,
     "paths": {
+      "@public/*": ["../public/*"],
       "@components/*": ["components/*"],
       "@helpers/*": ["helpers/*"],
       "@hooks/*": ["hooks/*"],

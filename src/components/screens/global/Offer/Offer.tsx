@@ -5,7 +5,7 @@ import { IUploadFull } from '@shared/interfaces/IUpload';
 import ILink from '@shared/interfaces/Button/ILink';
 import UploadDTO from '@shared/dto/uploadDTO';
 
-import Button from '../Button/Button';
+import Button from '@components/ui/Button/Button';
 
 import styles from './Offer.module.scss';
 
