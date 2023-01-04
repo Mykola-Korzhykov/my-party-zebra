@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_sections_section_offer_s",
+  "info": {
+    "displayName": "Section [Offer]"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "sectionId": {
+      "type": "string",
+      "required": true
+    },
+    "firstText": {
+      "type": "text",
+      "required": true
+    },
+    "secondText": {
+      "type": "text",
+      "required": true
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "buttons.link",
+      "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

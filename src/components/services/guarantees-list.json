@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_services_guarantees_lists",
+  "info": {
+    "displayName": "Guarantees List"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "enumeration",
+      "enum": [
+        "image",
+        "bot",
+        "clock",
+        "smile",
+        "security",
+        "car"
+      ],
+      "required": true
+    }
+  }
+}

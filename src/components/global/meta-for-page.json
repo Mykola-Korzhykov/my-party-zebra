@@ -1,7 +1,8 @@
 {
   "collectionName": "components_global_meta_for_pages",
   "info": {
-    "displayName": "Meta for Page"
+    "displayName": "Meta for Page",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -10,11 +11,15 @@
       "required": true
     },
     "preview": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "themeColor": {
+      "type": "string",
       "required": true
     }
   }

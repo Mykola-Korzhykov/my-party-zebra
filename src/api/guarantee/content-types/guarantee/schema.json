@@ -1,0 +1,49 @@
+{
+  "kind": "singleType",
+  "collectionName": "guarantees",
+  "info": {
+    "singularName": "guarantee",
+    "pluralName": "guarantees",
+    "displayName": "Guarantees",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "list": {
+      "displayName": "Guarantees List",
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "services.guarantees-list"
+    },
+    "sectionTitle": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "sectionId": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "required": true
+    }
+  }
+}
