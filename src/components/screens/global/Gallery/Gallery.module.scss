@@ -34,22 +34,21 @@
     border: 1.5px solid var(--theme-color);
     cursor: pointer;
 
-    &:before,
-    &:after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        display: block;
-        width: 32px;
-        height: 32px;
-        transform: translate(-50%, -50%);
-        @include transition();
+    & svg {
+        @include center-element();
+
+        & path {
+            stroke: var(--theme-color);
+        }
     }
 
     &:hover {
         @include transition();
         background: var(--theme-color);
+
+        & svg path {
+            stroke: #fff !important;
+        }
     }
 
     &[disabled] {
@@ -62,44 +61,15 @@
 .prevSlide {
     margin-right: 30px;
 
-    &:before {
-        @include background('/img/gallery/previous-icon.svg');
-    }
-
-    &:after {
-        @include background('/img/gallery/previous-icon-hover.svg');
-        @include fade(out);
-    }
-
-    &:hover {
-        &:before {@include fade(out)}
-        &:after {@include fade(in)}
-    }
-
     @include mq($phablet) {
         margin-right: 15px;
-    }
-}
-
-.nextSlide {
-    &:before {
-        @include background('/img/gallery/next-icon.svg');
-    }
-
-    &:after {
-        @include background('/img/gallery/next-icon-hover.svg');
-        @include fade(out);
-    }
-
-    &:hover {
-        &:before {@include fade(out)}
-        &:after {@include fade(in)}
     }
 }
 
 .slides {
     width: 100% !important;
     margin-top: 30px;
+    border-radius: 40px;
 }
 
 .image {
@@ -121,13 +91,34 @@
     }
 }
 
+.cubic {
+    position: absolute;
+
+    & path {
+        fill: var(--theme-color);
+    }
+}
+
+.cubicBefore {
+    top: 65px;
+    left: -20px;
+}
+
+.cubicAfter {
+    bottom: -15px;
+    right: -15px;
+    transform: rotateX(-180deg) rotateY(-180deg);
+
+    @include mq($tablet) {
+        display: none;
+    }
+}
+
 @media (hover: none) {
     .prevSlide, .nextSlide {
         &:hover {
             background: none;
-            
-            &:before {@include fade(in)}
-            &:after {@include fade(out)}
+            color: var(--theme-color) !important;
         }
     }
 }

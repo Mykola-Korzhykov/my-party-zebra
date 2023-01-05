@@ -1,4 +1,4 @@
-import ILink from '../Button/ILink';
+import ILink from '../../Button/ILink';
 
 export default interface IReviewsItem {
     name: string;

@@ -4,8 +4,11 @@ import Image from 'next/legacy/image';
 import { IUpload, IUploadFullWithoutData } from '@shared/interfaces/IUpload';
 import UploadDTO from '@shared/dto/uploadDTO';
 
-import styles from './Gallery.module.scss';
+import GalleryButtons from './GalleryButtons';
 import GalleryImages from './GalleryImages';
+
+import styles from './Gallery.module.scss';
+import Cubic from './Cubic';
 
 type Props = {
     data: {
@@ -27,16 +30,17 @@ const Gallery: FC<Props> = ({data}) => {
 
     return (
         <section className={styles.section} id={sectionId}>
-            <div className="container">
+            <div className="container" style={{position: 'relative'}}>
+                <Cubic className="cubicBefore" />
+
                 <div className={styles.sectionRow}>
                     <h3 className={styles.sectionTitle}>{sectionTitle}</h3>
-                    <div className={styles.buttons}>
-                        <button type="button" className={styles.prevSlide} onClick={previousSlide} aria-label="Previous Slide"></button>
-                        <button type="button" className={styles.nextSlide} onClick={nextSlide} aria-label="Next Slide"></button>
-                    </div>
+                    <GalleryButtons previousSlide={previousSlide} nextSlide={nextSlide} />
                 </div>
 
                 <GalleryImages images={sortImages} swiperRef={swiperRef} />
+
+                <Cubic className="cubicAfter" />
             </div>
         </section>
     );

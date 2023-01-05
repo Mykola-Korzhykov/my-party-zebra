@@ -8,7 +8,7 @@ import smileIcon from '@public/img/guarantees/smile-icon.svg';
 import securityIcon from '@public/img/guarantees/security-icon.svg';
 import carIcon from '@public/img/guarantees/car-icon.svg';
 
-import IGuaranteesItem from '@shared/interfaces/Data/IGuaranteesItem';
+import IGuaranteesItem from '@shared/interfaces/Data/Items/IGuaranteesItem';
 
 import styles from './Guarantees.module.scss';
 

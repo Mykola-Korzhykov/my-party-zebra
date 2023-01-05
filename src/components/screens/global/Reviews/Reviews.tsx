@@ -2,7 +2,7 @@ import { FC } from 'react';
 import Link from 'next/link';
 
 import ILink from '@shared/interfaces/Button/ILink';
-import IReviewsItem from '@shared/interfaces/Data/IReviewsItem';
+import IReviewsItem from '@shared/interfaces/Data/Items/IReviewsItem';
 
 import styles from './Reviews.module.scss';
 import Button from '@components/ui/Button/Button';

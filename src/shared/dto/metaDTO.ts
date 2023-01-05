@@ -7,19 +7,19 @@ class MetaDTO {
     siteName;
     title;
     description;
-    themeColor;
+    theme: {color: string};
     preview: IUpload;
     favicon: IUpload;
     appleTouchIcon: IUpload;
 
     constructor(metaData: IMeta) {
-        const {siteName, title, description, themeColor} = metaData;
+        const {siteName, title, description, theme} = metaData;
         const {preview, favicon, appleTouchIcon} = metaData;
 
         this.siteName = siteName;
         this.title = title;
         this.description = description;
-        this.themeColor = themeColor;
+        this.theme = theme;
 
         this.preview = new UploadDTO(preview);
         this.favicon = new UploadDTO(favicon);

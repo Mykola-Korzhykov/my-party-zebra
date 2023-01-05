@@ -20,6 +20,8 @@ import MetaDTO from '@shared/dto/metaDTO';
 
 import Layout from '@components/layout/Layout';
 
+import themeColors from '@data/themeColors';
+
 import '@styles/global.scss';
 
 interface AppOwnProps {
@@ -38,18 +40,16 @@ const CustomApp = ({Component, pageProps, env, props}: AppOwnProps & AppProps) =
   const url = `${env.FRONTEND_URL}/${locale}${pathname}`;
 
   const {metaData, layoutData, localesData} = props;
-  const {siteName, title, description, themeColor, preview, favicon, appleTouchIcon} = new MetaDTO(metaData);
+  const {siteName, title, description, theme, preview, favicon, appleTouchIcon} = new MetaDTO(metaData);
 
-  useEffect(() => {
-    document.body.style.setProperty('--theme-color', themeColor);
-  });
+  const themeColorHEX = themeColors[theme.color];
 
   return (
     <>
       <Head>
         {/* Theme Color */}
-        <meta name="msapplication-navbutton-color" content={themeColor} />
-        <meta name="apple-mobile-web-app-status-bar-style" content={themeColor} />
+        <meta name="msapplication-navbutton-color" content={themeColorHEX} />
+        <meta name="apple-mobile-web-app-status-bar-style" content={themeColorHEX} />
 
         {/* Manifest Site */}
         <link rel="manifest" href="/favicons/manifest.json" />
@@ -68,7 +68,7 @@ const CustomApp = ({Component, pageProps, env, props}: AppOwnProps & AppProps) =
         title="App"
         titleTemplate={`%s | ${siteName}`}
         description={description}
-        themeColor={themeColor}
+        themeColor={themeColorHEX}
         openGraph={{
           type: 'website',
           images: [{url: preview.url, alt: preview.alt}],

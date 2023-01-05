@@ -1,12 +1,16 @@
+import { useEffect } from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
 
+import UploadDTO from '@shared/dto/uploadDTO';
+
 import MetaHead from '@components/MetaHead';
+import Content404 from '@components/screens/Custom404/Content404';
 import Button from '@components/ui/Button/Button';
 
+import themeColors from '@data/themeColors';
+
 import api from '@shared/http';
-import UploadDTO from '@shared/dto/uploadDTO';
-import Content404 from '@components/screens/Custom404/Content404';
 
 export const getStaticProps: GetStaticProps = async ({locale}) => {
     const pageContent = await api.get(`/page-404?locale=${locale}`);
@@ -15,11 +19,18 @@ export const getStaticProps: GetStaticProps = async ({locale}) => {
 
 const Custom404: NextPage<any> = ({content}) => {
     const {meta, title, description, button} = content;
-    const {pageTitle, preview} = meta;
+    const {pageTitle, theme, preview} = meta;
+
+    const themeColor = theme.color;
+    const themeColorHEX = themeColors[themeColor];
+  
+    useEffect(() => {
+      document.body.style.setProperty('--theme-color', themeColorHEX);
+    });
 
     return (
         <>
-            <MetaHead pageTitle={pageTitle} title={title} description={description} preview={new UploadDTO(preview)} />
+            <MetaHead pageTitle={pageTitle} title={title} description={description} themeColor={themeColor} preview={new UploadDTO(preview)} />
             <Content404 title={title} description={description} button={button} />
         </>
     );
