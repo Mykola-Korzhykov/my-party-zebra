@@ -18,8 +18,10 @@
         "images"
       ]
     },
-    "themeColor": {
-      "type": "string",
+    "theme": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.theme",
       "required": true
     }
   }

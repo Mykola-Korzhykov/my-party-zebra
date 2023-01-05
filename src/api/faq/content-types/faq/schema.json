@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "guarantees",
+  "collectionName": "faqs",
   "info": {
-    "singularName": "guarantee",
-    "pluralName": "guarantees",
-    "displayName": "Section [Guarantees]",
+    "singularName": "faq",
+    "pluralName": "faqs",
+    "displayName": "Section [FAQ]",
     "description": ""
   },
   "options": {
@@ -16,8 +16,26 @@
     }
   },
   "attributes": {
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "colorTitle": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
     "list": {
-      "displayName": "Guarantees List",
+      "displayName": "FAQ List",
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -25,15 +43,7 @@
           "localized": true
         }
       },
-      "component": "services.guarantees-list"
-    },
-    "sectionTitle": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
+      "component": "services.faq-list",
       "required": true
     },
     "sectionId": {

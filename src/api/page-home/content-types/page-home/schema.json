@@ -27,15 +27,6 @@
         }
       }
     },
-    "pageTitle": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": true
-    },
     "services": {
       "type": "component",
       "repeatable": false,
@@ -68,6 +59,16 @@
       },
       "component": "sections.section-age-groups",
       "required": true
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "global.meta-for-page"
     }
   }
 }

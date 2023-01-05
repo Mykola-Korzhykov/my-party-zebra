@@ -34,15 +34,6 @@
       "type": "string",
       "required": true
     },
-    "themeColor": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string",
-      "required": true
-    },
     "preview": {
       "type": "media",
       "multiple": false,
@@ -89,6 +80,17 @@
         }
       },
       "type": "string",
+      "required": true
+    },
+    "theme": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "global.theme",
       "required": true
     }
   }
