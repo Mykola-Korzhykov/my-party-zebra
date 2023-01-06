@@ -146,6 +146,10 @@ button {
     @include first-screen-bg();
 }
 
+.next-page[data-path="/404"] #footer {
+    display: none;
+}
+
 /* ---- Scroll ---- */
 ::-webkit-scrollbar-track {
 	background-color: #F5F5F5;

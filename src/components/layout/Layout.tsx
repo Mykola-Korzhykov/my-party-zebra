@@ -5,7 +5,7 @@ import { useAppDispatch } from '@store/hook';
 import { hideLoader } from '@store/slices/loaderSlice';
 
 import IMeta from '@shared/interfaces/Data/IMeta';
-import ILayout from '@shared/interfaces/Data/ILayout';
+import ILayout from '@shared/interfaces/Data/Layout/ILayout';
 import ILocale from '@shared/interfaces/ILocale';
 
 import Header from './Header/Header';
@@ -54,7 +54,7 @@ const Layout: FC<Props> = ({data, children}) => {
             <main style={{paddingTop: isSticky ? headerHeight : 0}}>
                 {children}
             </main>
-            <Footer />
+            <Footer siteName={siteName} menu={menu} data={data.layout.footer} />
         </div>
     );
 }

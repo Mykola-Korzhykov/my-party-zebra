@@ -35,8 +35,10 @@ const getConfig = async () => {
       localeDetection: false
     },
     env: {
+      FRONTEND_URL: process.env.FRONTEND_URL,
       API_URL: process.env.API_URL,
-      UPLOADS_URL: process.env.UPLOADS_URL
+      UPLOADS_URL: process.env.UPLOADS_URL,
+      MAP_ACCESS_TOKEN: process.env.MAP_ACCESS_TOKEN
     },
     webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
       config.resolve.alias = {

@@ -19,6 +19,7 @@ const Menu: FC<Props> = ({place, list, isOpen, toggleMenu}) => {
                 <MenuItem text={text} 
                           href={href} 
                           type={type} 
+                          place={place}
                           toggleMenu={toggleMenu} 
                           key={index} />
             ))}

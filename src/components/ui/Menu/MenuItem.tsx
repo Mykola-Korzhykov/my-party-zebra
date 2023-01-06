@@ -10,13 +10,14 @@ import styles from './Menu.module.scss';
 
 interface Props extends IMenuItem {
     toggleMenu: () => void;
+    place: string;
 }
 
-const MenuItem: FC<Props> = ({text, href, type, toggleMenu}) => {
+const MenuItem: FC<Props> = ({text, href, type, place, toggleMenu}) => {
     const windowSize = useWindowSize();
 
     const anchorHandleClick = (e: MouseEvent<HTMLAnchorElement>) => {
-        if(windowSize.width < 993) toggleMenu();
+        if(windowSize.width < 993 && place === "header") toggleMenu();
         anchorClick(e);
     }
 

@@ -35,9 +35,9 @@ const Reviews: FC<Props> = ({data}) => {
                                 <p className={styles.text}>{text}</p>
                             </div>
 
-                            <div className={styles.link}>
-                                <Link href={link.href ?? ''}>{link.text}</Link>
-                            </div>
+                            <Link href={link.href ?? ''} legacyBehavior>
+                                <a className={styles.link}>{link.text}</a>
+                            </Link>
                         </li>
                     ))}
                 </ul>

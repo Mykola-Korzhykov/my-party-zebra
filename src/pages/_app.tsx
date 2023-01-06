@@ -14,7 +14,7 @@ import store from '@store/store';
 
 import IEnv from '@shared/interfaces/IEnv';
 import IMeta from '@shared/interfaces/Data/IMeta';
-import ILayout from '@shared/interfaces/Data/ILayout';
+import ILayout from '@shared/interfaces/Data/Layout/ILayout';
 import ILocale from '@shared/interfaces/ILocale';
 import MetaDTO from '@shared/dto/metaDTO';
 

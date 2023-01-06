@@ -1,0 +1,24 @@
+/* ---- Map ---- */
+@import '@resources';
+
+.container {
+    width: rem(288);
+    height: rem(138);
+
+    @include mq($tablet-large) {
+        width: rem(198);
+    }
+
+    @include mq($tablet) {
+        width: 90vw;
+        height: rem(200);
+    }
+
+    @include mq($phablet) {
+        height: rem(150);
+    }
+
+    @include mq($phone) {
+        height: rem(138);
+    }
+}
