@@ -18,7 +18,8 @@
       "displayName": "Age Groups List",
       "type": "component",
       "repeatable": true,
-      "component": "services.age-groups-list"
+      "component": "services.age-groups-list",
+      "max": 3
     },
     "button": {
       "type": "component",

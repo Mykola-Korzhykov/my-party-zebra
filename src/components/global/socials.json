@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_global_socials",
+  "info": {
+    "displayName": "Socials"
+  },
+  "options": {},
+  "attributes": {
+    "instagram": {
+      "type": "string",
+      "required": true
+    },
+    "facebook": {
+      "type": "string",
+      "required": true
+    },
+    "tiktok": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

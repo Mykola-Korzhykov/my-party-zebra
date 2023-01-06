@@ -16,7 +16,8 @@
       "type": "component",
       "repeatable": true,
       "component": "services.services",
-      "required": true
+      "required": true,
+      "max": 4
     },
     "sectionId": {
       "type": "string",

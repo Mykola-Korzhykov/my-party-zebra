@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_global_maps",
+  "info": {
+    "displayName": "Map"
+  },
+  "options": {},
+  "attributes": {
+    "lng": {
+      "type": "string",
+      "required": true
+    },
+    "lat": {
+      "type": "string",
+      "required": true
+    },
+    "zoom": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

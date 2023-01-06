@@ -26,6 +26,17 @@
           "localized": true
         }
       }
+    },
+    "footer": {
+      "displayName": "footer",
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "layout.footer"
     }
   }
 }

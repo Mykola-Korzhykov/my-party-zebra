@@ -55,7 +55,8 @@
         }
       },
       "component": "services.reviews-list",
-      "required": true
+      "required": true,
+      "max": 4
     }
   }
 }

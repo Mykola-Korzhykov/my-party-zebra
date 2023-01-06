@@ -23,6 +23,10 @@
       "repeatable": false,
       "component": "global.theme",
       "required": true
+    },
+    "previousPageTitle": {
+      "type": "string",
+      "required": true
     }
   }
 }

@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_layout_footers",
+  "info": {
+    "displayName": "footer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "map": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.map",
+      "required": true
+    },
+    "socials": {
+      "type": "component",
+      "repeatable": false,
+      "required": true,
+      "component": "global.socials"
+    },
+    "link": {
+      "type": "component",
+      "repeatable": false,
+      "component": "buttons.link",
+      "required": true
+    },
+    "otherLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "buttons.link",
+      "required": true
+    }
+  }
+}
