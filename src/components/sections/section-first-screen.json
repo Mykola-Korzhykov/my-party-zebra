@@ -14,14 +14,14 @@
       "type": "text",
       "required": true
     },
-    "button": {
-      "displayName": "Anchor",
-      "type": "component",
-      "repeatable": false,
-      "component": "buttons.anchor"
-    },
     "colorTitle": {
       "type": "string",
+      "required": true
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "buttons.link",
       "required": true
     }
   }

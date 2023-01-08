@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_services_footer_services",
+  "info": {
+    "displayName": "Footer Services",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

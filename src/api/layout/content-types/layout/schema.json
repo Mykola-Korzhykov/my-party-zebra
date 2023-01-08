@@ -36,7 +36,19 @@
           "localized": false
         }
       },
-      "component": "layout.footer"
+      "component": "layout.footer",
+      "required": true
+    },
+    "services": {
+      "displayName": "Footer Services",
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "services.footer-services"
     }
   }
 }
