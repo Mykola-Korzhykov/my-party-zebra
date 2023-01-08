@@ -76,9 +76,10 @@
     position: relative;
     width: 100%;
     height: 40vh;
+    border-radius: 40px;
 
-    & img {
-        object-fit: cover;
+    & img,
+    & span {
         border-radius: 40px;
     }
 
@@ -106,7 +107,7 @@
 
 .cubicAfter {
     bottom: -15px;
-    right: -15px;
+    right: 0;
     transform: rotateX(-180deg) rotateY(-180deg);
 
     @include mq($tablet) {

@@ -91,7 +91,7 @@
     &_footer {
         display: grid;
         grid-template-columns: repeat(2, rem(170));
-        column-gap: 100px;
+        column-gap: 50px;
 
         & .item {
             margin-bottom: 10px;
@@ -130,7 +130,7 @@
             }
 
             &:hover {
-                @include color-opacity($black-1, 1);
+                @include color-opacity($black-1, 0.8);
                 @include transition();
             }
 
@@ -153,7 +153,8 @@
         }
 
         @include mq($laptop) {
-            column-gap: 50px;
+            grid-template-columns: repeat(2, rem(80));
+            margin-right: 30px;
         }
 
         @include mq($tablet) {

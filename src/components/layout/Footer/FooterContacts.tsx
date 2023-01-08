@@ -1,8 +1,11 @@
 import { FC } from 'react';
+import Link from 'next/link';
 
 import useWindowSize from '@hooks/useWindowSize';
 
+import ILink from '@shared/interfaces/Button/ILink';
 import ISocials from '@shared/interfaces/Data/Global/ISocials';
+
 import FooterSocials from './FooterSocials';
 
 import styles from './Footer.module.scss';

@@ -1,13 +1,6 @@
 import { FC } from 'react';
 import Image from 'next/legacy/image';
 
-import imageIcon from '@public/img/guarantees/image-icon.svg';
-import botIcon from '@public/img/guarantees/bot-icon.svg';
-import clockIcon from '@public/img/guarantees/clock-icon.svg';
-import smileIcon from '@public/img/guarantees/smile-icon.svg';
-import securityIcon from '@public/img/guarantees/security-icon.svg';
-import carIcon from '@public/img/guarantees/car-icon.svg';
-
 import IGuaranteesItem from '@shared/interfaces/Data/Items/IGuaranteesItem';
 
 import styles from './Guarantees.module.scss';
@@ -27,13 +20,14 @@ type IconsType = {
 const Guarantees: FC<Props> = ({data}) => {
     const {sectionTitle, sectionId, list} = data;
 
+    const iconsURL = '/img/guarantees';
     const icons: IconsType = {
-        image: imageIcon,
-        bot: botIcon,
-        clock: clockIcon,
-        smile: smileIcon,
-        security: securityIcon,
-        car: carIcon
+        image: `${iconsURL}/image-icon.svg`,
+        bot: `${iconsURL}/bot-icon.svg`,
+        clock: `${iconsURL}/clock-icon.svg`,
+        smile: `${iconsURL}/smile-icon.svg`,
+        security: `${iconsURL}/security-icon.svg`,
+        car: `${iconsURL}/car-icon.svg`,
     }
 
     return (

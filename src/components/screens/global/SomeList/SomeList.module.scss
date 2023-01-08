@@ -49,8 +49,10 @@
     width: 150px;
     height: 150px;
     pointer-events: none;
+    border-radius: 40px;
 
-    & img {
+    & img,
+    & span {
         border-radius: 40px;
     }
 
@@ -58,7 +60,8 @@
         width: 110px;
         height: 110px;
 
-        & img {
+        & img,
+        & span {
             border-radius: 30px;
         }
     }

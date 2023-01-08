@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import IAnchor from '@shared/interfaces/Button/IAnchor';
+import ILink from '@shared/interfaces/Button/ILink';
 
 import styles from './FirstScreen.module.scss';
 import Button from '@components/ui/Button/Button';
@@ -10,7 +10,7 @@ type Props = {
         title: string;
         colorTitle: string;
         description: string;
-        button: IAnchor
+        button: ILink
     }
 };
 
@@ -25,7 +25,7 @@ const FirstScreen: FC<Props> = ({data}) => {
                         {title} <span className={styles.colorTitle}>{colorTitle}</span>
                     </h1>
                     <p className={styles.description}>{description}</p>
-                    <Button type="anchor" variety="theme" href={button.sectionId} text={button.text} customClass={styles.button} />
+                    <Button type="link" variety="theme" href={button.href} text={button.text} customClass={styles.button} />
                 </div>
             </div>
         </section>

@@ -1,0 +1,38 @@
+/* ---- Breadcrumbs ---- */
+@import '@resources';
+
+.section {
+    padding: 0;
+}
+
+.list {
+    @include flexible();
+}
+
+.item {
+    @include flexible();
+
+    &:not(:last-of-type) {
+        &:after {
+            content: '|';
+            padding: 0 10px;
+        }
+    }
+}
+
+.link, .text {
+    @include transition();
+    @include font-size(18px);
+    font-weight: 400;
+    color: $black-3;
+
+    &:hover {
+        @include transition();
+        color: $black-1;
+    }
+}
+
+.current {
+    color: var(--theme-color) !important;
+    pointer-events: none;
+}

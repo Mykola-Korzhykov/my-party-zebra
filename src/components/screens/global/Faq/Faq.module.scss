@@ -45,6 +45,10 @@
         width: rem(260);
         height: rem(250);
     }
+
+    @include mq(320) {
+        display: none;
+    }
 }
 
 .title {

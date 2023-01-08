@@ -10,6 +10,8 @@ import Button from '@components/ui/Button/Button';
 
 import themeColors from '@data/themeColors';
 
+import Breadcrumbs from '@components/ui/Breadcrumbs/Breadcrumbs';
+
 import api from '@shared/http';
 
 export const getStaticProps: GetStaticProps = async ({locale}) => {
@@ -19,7 +21,7 @@ export const getStaticProps: GetStaticProps = async ({locale}) => {
 
 const Custom404: NextPage<any> = ({content}) => {
     const {meta, title, description, button} = content;
-    const {pageTitle, theme, preview} = meta;
+    const {pageTitle, previousPageTitle, theme, preview} = meta;
 
     const themeColor = theme.color;
     const themeColorHEX = themeColors[themeColor];
@@ -31,6 +33,7 @@ const Custom404: NextPage<any> = ({content}) => {
     return (
         <>
             <MetaHead pageTitle={pageTitle} title={title} description={description} themeColor={themeColor} preview={new UploadDTO(preview)} />
+            <Breadcrumbs previousPageTitle={previousPageTitle} pageTitle={pageTitle} />
             <Content404 title={title} description={description} button={button} />
         </>
     );

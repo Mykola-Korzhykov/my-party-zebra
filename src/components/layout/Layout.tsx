@@ -28,8 +28,9 @@ const Layout: FC<Props> = ({data, children}) => {
     const headerRef = useRef<HTMLElement>(null);
 
     const dispatch = useAppDispatch();
-    const {pathname} = useRouter();
+    const router = useRouter();
 
+    const {pathname} = router;
     const {siteName} = data.meta;
     const {menu} = data.layout.header;
 
@@ -54,7 +55,7 @@ const Layout: FC<Props> = ({data, children}) => {
             <main style={{paddingTop: isSticky ? headerHeight : 0}}>
                 {children}
             </main>
-            <Footer siteName={siteName} menu={menu} data={data.layout.footer} />
+            <Footer siteName={siteName} menu={menu} services={data.layout.services} data={data.layout.footer} />
         </div>
     );
 }

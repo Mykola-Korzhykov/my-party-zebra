@@ -133,4 +133,8 @@
         width: rem(270);
         height: rem(230);
     }
+
+    @include mq(320) {
+        display: none;
+    }
 }
