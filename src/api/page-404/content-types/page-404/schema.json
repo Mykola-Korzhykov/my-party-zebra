@@ -34,17 +34,6 @@
       "type": "text",
       "required": true
     },
-    "button": {
-      "displayName": "Link",
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "buttons.link"
-    },
     "meta": {
       "type": "component",
       "repeatable": false,
@@ -54,6 +43,17 @@
         }
       },
       "component": "global.meta-for-page"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "buttons.link",
+      "required": true
     }
   }
 }
