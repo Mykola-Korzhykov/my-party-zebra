@@ -1,0 +1,53 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_plannings",
+  "info": {
+    "singularName": "page-planning",
+    "pluralName": "page-plannings",
+    "displayName": "Page [Planning]",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "global.meta-for-page",
+      "required": true
+    },
+    "screen": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "sections.section-screen",
+      "required": true
+    },
+    "planning": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "sections.section-features",
+      "required": true
+    }
+  }
+}
