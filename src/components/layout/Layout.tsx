@@ -30,7 +30,7 @@ const Layout: FC<Props> = ({data, children}) => {
     const dispatch = useAppDispatch();
     const router = useRouter();
 
-    const {pathname} = router;
+    const {pathname, locale} = router;
     const {siteName} = data.meta;
     const {menu} = data.layout.header;
 
@@ -46,7 +46,7 @@ const Layout: FC<Props> = ({data, children}) => {
                 setIsSticky(false);
             }
         });
-    }, [dispatch]);
+    }, [locale, dispatch]);
 
     return (
         <div className="next-page" data-path={pathname}>

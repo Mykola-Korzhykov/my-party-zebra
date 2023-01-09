@@ -21,19 +21,23 @@ const Locales: FC<Props> = ({locales, isMenuOpen, toggleMenu}) => {
 
     const router = useRouter();
     const dispatch = useAppDispatch();
-    
+
     const {pathname, locale} = router;
     
     const localeHandleClick = (code: string) => {
-        dispatch(showLoader())
+        if(locale === code) return;
+
+        dispatch(showLoader());
         router.push(pathname, pathname, {locale: code});
         
         if(windowSize.width < 993) {
             toggleMenu();
         }
-
-        setTimeout(() => dispatch(hideLoader()), 100);
     }
+
+    useEffect(() => {
+        dispatch(hideLoader())
+    }, [locale, dispatch]);
 
     return (
         <ul className={`${styles.locales} ${isMenuOpen ? menuStyles.show : ''} ${windowSize.width < 993 && !isMenuOpen ? menuStyles.hide : ''}`}>

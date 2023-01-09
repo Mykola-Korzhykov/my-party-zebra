@@ -74,21 +74,11 @@
 
 .image {
     position: relative;
-    width: 100%;
-    height: 40vh;
     border-radius: 40px;
 
     & img,
     & span {
         border-radius: 40px;
-    }
-
-    @include mq($tablet-large) {
-        height: 30vh;
-    }
-
-    @include mq($phablet) {
-        height: 30vh;
     }
 }
 
@@ -120,6 +110,12 @@
         &:hover {
             background: none;
             color: var(--theme-color) !important;
+
+            & svg {
+                & path {
+                    stroke: var(--theme-color) !important;
+                }
+            }
         }
     }
 }

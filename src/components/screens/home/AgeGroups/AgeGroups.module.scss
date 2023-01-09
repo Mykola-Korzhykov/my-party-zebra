@@ -30,6 +30,10 @@
     background-color: $gray-1;
     padding: 30px;
 
+    @include mq($tablet-large) {
+        padding: 20px;
+    }
+
     @include mq($tablet) {
         min-width: rem(235);
     }

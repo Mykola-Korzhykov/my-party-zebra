@@ -20,7 +20,7 @@ const GalleryImages: FC<Props> = ({images, swiperRef}) => {
             {images.map(({url, alt}, index) => (
                 <SwiperSlide className={styles.slide} key={index}>
                     <div className={styles.image}>
-                        <Image src={url} blurDataURL={url} alt={alt} placeholder="blur" layout="fill" />
+                        <Image src={url} blurDataURL={url} alt={alt} placeholder="blur" width={parseInt('100%')} height={parseInt('100%')} layout="responsive" />
                     </div>
                 </SwiperSlide>
             ))}

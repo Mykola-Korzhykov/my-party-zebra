@@ -25,6 +25,12 @@
 
 .arrow {
     @include fade(out);
+    width: 100%;
+    padding: 0 20px;
+
+    @include mq($tablet-large) {
+        padding: 0 18px;
+    }
 }
 
 .item {
@@ -41,6 +47,10 @@
         & .arrow {
             @include fade(in);
         }
+    }
+
+    @include mq($tablet-large) {
+        padding-bottom: 8px;
     }
 
     @include mq($tablet + 100) {
