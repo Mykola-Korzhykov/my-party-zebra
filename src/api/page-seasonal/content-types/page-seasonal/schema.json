@@ -4,7 +4,8 @@
   "info": {
     "singularName": "page-seasonal",
     "pluralName": "page-seasonals",
-    "displayName": "Page [Seasonal]"
+    "displayName": "Page [Seasonal]",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -35,6 +36,17 @@
         }
       },
       "component": "sections.section-screen",
+      "required": true
+    },
+    "services": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "sections.section-services-s",
       "required": true
     }
   }

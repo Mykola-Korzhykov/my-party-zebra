@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_services_services_s_lists",
+  "info": {
+    "displayName": "Services - S List"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "buttons.link",
+      "required": true
+    }
+  }
+}

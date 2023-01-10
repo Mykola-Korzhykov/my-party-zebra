@@ -27,12 +27,6 @@
       "type": "text",
       "required": true
     },
-    "button": {
-      "type": "component",
-      "repeatable": false,
-      "component": "buttons.link",
-      "required": true
-    },
     "sectionId": {
       "type": "string",
       "required": true
@@ -47,6 +41,12 @@
       ],
       "required": true,
       "default": "marshmallow"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.item",
+      "required": true
     }
   }
 }

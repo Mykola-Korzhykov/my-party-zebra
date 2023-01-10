@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_services_programs_lists",
+  "info": {
+    "displayName": "Programs List",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "firstText": {
+      "type": "text",
+      "required": true
+    },
+    "secondText": {
+      "type": "text",
+      "required": false
+    },
+    "thirdText": {
+      "type": "text",
+      "required": false
+    },
+    "animatorsCount": {
+      "type": "integer",
+      "required": true,
+      "default": 1
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
