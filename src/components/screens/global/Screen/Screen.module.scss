@@ -1,0 +1,89 @@
+/* ---- Screen ---- */
+@import '@resources';
+
+.wrapper {
+    @include flexible();
+    justify-content: space-between;
+
+    @include mq($tablet) {
+        flex-direction: column-reverse;
+    }
+}
+
+.content {
+    margin-right: 50px;
+
+    @include mq($tablet) {
+        text-align: center;
+        margin-top: 32px;
+        margin-right: 0;
+    }
+}
+
+.title {
+    @include font-size(54px);
+    font-weight: 500;
+    line-height: 125%;
+
+    @include mq($tablet-large) {
+        @include font-size(36px);
+    }
+}
+
+.colorTitle {
+    color: var(--theme-color);
+}
+
+.description {
+    @include font-size(28px);
+    font-weight: 400;
+    color: $black-3;
+    margin-top: 20px;
+
+    @include mq($tablet-large) {
+        @include font-size(18px);
+        margin-top: 16px;
+    }
+}
+
+.button {
+    @include font-size(24px);
+    padding: 20px 50px;
+    width: fit-content;
+    border-radius: 70px;
+    margin-top: 50px;
+
+    @include mq($tablet-large) {
+        @include font-size(20px);
+        padding: 16px 40px;
+        margin-top: 40px;
+    }
+
+    @include mq($tablet) {
+        margin: 40px auto 0;
+    }
+}
+
+.image {
+    position: relative;
+    width: 80%;
+    height: rem(400);
+    
+    & img {
+        object-fit: contain;
+    }
+
+    @include mq($tablet-large) {
+        height: rem(250);
+    }
+
+    @include mq($tablet) {
+        width: 90%;
+        height: rem(300);
+    }
+
+    @include mq($phablet) {
+        width: 100%;
+        height: rem(250);
+    }
+}

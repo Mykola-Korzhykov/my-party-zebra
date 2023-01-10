@@ -18,7 +18,7 @@
 }
 
 .sectionTitle {
-    @include font-size(83px);
+    @include font-size(60px);
     font-weight: 500;
 
     @include mq($tablet-large) {

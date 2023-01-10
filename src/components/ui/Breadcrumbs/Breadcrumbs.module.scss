@@ -5,12 +5,25 @@
     padding: 0 0 50px 0;
 
     @include mq($tablet-large) {
-        padding: 0 0 50px 0;
+        padding: 0 0 30px 0;
+    }
+
+    @include mq($tablet) {
+        padding: 0 0 40px 0;
+    }
+
+    @include mq($phone) {
+        padding: 0 0 20px 0;
     }
 }
 
 .list {
     @include flexible();
+
+    @include mq($phone) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 .item {
@@ -20,6 +33,18 @@
         &:after {
             content: '|';
             padding: 0 10px;
+        }
+    }
+
+    @include mq($phone) {
+        flex-direction: column;
+        align-items: flex-start;
+
+        &:not(:last-of-type) {
+            &:after {
+                content: '—';
+                padding: 2px 0;
+            }
         }
     }
 }

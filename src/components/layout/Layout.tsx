@@ -46,7 +46,7 @@ const Layout: FC<Props> = ({data, children}) => {
                 setIsSticky(false);
             }
         });
-    }, [locale, dispatch]);
+    }, [dispatch]);
 
     return (
         <div className="next-page" data-path={pathname}>
