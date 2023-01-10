@@ -44,6 +44,22 @@
     color: #fff;
 }
 
+.themeGhost {
+    background: none !important;
+    border: 2px solid var(--theme-color);
+    color: var(--theme-color);
+
+    &:hover,
+    &:active {
+        background: var(--theme-color) !important;
+        color: #fff !important;
+
+        &:after {
+            display: none;
+        }
+    }
+}
+
 .white {
     background: $white-1;
     color: var(--theme-color);

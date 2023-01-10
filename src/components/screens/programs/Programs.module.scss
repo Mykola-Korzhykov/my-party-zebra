@@ -1,0 +1,112 @@
+/* ---- Programs ---- */
+@import '@resources';
+
+.sectionTitle {
+    @include font-size(32px);
+    font-weight: 500;
+    text-align: center;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+
+    @include mq($tablet-large) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mq($phablet) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: $gray-1;
+    border-radius: 0px 0px 20px 20px;
+    padding-bottom: 20px;
+}
+
+.image {
+    position: relative;
+    width: 100%;
+    height: rem(120);
+
+    & img,
+    & span {
+        border-radius: 20px 20px 0px 0px;
+    }
+
+    @include mq($phablet) {
+        height: rem(130);
+    }
+}
+
+.content {
+    padding: 20px;
+}
+
+.title {
+    @include font-size(22px);
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.text {
+    @include font-size(16px);
+    @include color-opacity($black-1, 0.4);
+    margin-top: 10px;
+}
+
+.chooseButton {
+    @include font-size(16px);
+    display: block;
+    font-weight: 400;
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 50px;
+    width: calc(100% - (20px * 2));
+    margin: 10px auto 0;
+}
+
+.chooseActiveButton {
+    background: var(--theme-color) !important;
+    color: #fff !important;
+
+    &:after {
+        display: none;
+    }
+}
+
+.button {
+    @include font-size(20px);
+    display: block;
+    padding: 10px 35px;
+    border-radius: 48px;
+    margin: 30px auto 0;
+}
+
+.link {
+    @include transition();
+    @include fade(out);
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+
+    & ellipse {
+        fill: var(--theme-color);
+    }
+
+    &:hover {
+        @include link-hover();
+    }
+}
+
+.linkShow {
+    @include fade(in);
+}

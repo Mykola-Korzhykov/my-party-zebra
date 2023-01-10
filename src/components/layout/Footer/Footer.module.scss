@@ -81,10 +81,6 @@
         margin-bottom: 0;
         border-top: 1px solid rgba($black-1, 0.4);
 
-        &:hover {
-            background: var(--theme-color);
-        }
-
         &:first-of-type {
             border-top: none;
         }
@@ -112,22 +108,8 @@
         @include background('/img/layout/header/arrow-right.svg');
     }
 
-    &:hover {
-        @include color-opacity($black-1, 0.8);
-        @include transition();
-    }
-
     @include mq($tablet) {
         @include font-size(20px);
-
-        &:hover {
-            color: #fff;
-
-            &:after {
-                @include transition();
-                @include background('/img/layout/header/arrow-right-white.svg');
-            }
-        }
 
         &:after {
             display: block;

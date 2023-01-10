@@ -14,12 +14,13 @@ import themeColors from '@data/themeColors';
 
 import Breadcrumbs from '@components/ui/Breadcrumbs/Breadcrumbs'
 import Screen from '@components/screens/global/Screen/Screen'
-import Services from '@components/screens/home/Services/Services'
+import Services from '@components/screens/seasonal/Services/Services'
 import Gallery from '@components/screens/global/Gallery/Gallery'
 import Offer from '@components/screens/global/Offer/Offer'
 import Guarantees from '@components/screens/global/Guarantees/Guarantees'
 import Reviews from '@components/screens/global/Reviews/Reviews'
 import Faq from '@components/screens/global/Faq/Faq'
+
 import getFullTitle from '@helpers/getFullTitle'
 
 export const getStaticProps: GetStaticProps = async ({locale}) => {
@@ -34,7 +35,7 @@ export const getStaticProps: GetStaticProps = async ({locale}) => {
 }
 
 const Seasonal: NextPage<any> = ({content, gallery, offer, guarantees, reviews, faq}) => {
-  const {meta, screen} = content;
+  const {meta, screen, services} = content;
   const {title, colorTitle, colorTitlePlace, description} = screen;
 
   const fullTitle = getFullTitle(title, colorTitle, colorTitlePlace);
@@ -52,6 +53,7 @@ const Seasonal: NextPage<any> = ({content, gallery, offer, guarantees, reviews, 
 
     <Breadcrumbs pageTitle={meta.pageTitle} previousPageTitle={meta.previousPageTitle} />
     <Screen data={screen} themeColor={themeColor} />
+    <Services data={services} />
     <Gallery data={gallery} />
     <Offer data={offer.content} />
     <Guarantees data={guarantees} />

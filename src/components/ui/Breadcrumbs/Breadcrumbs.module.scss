@@ -19,11 +19,6 @@
 
 .list {
     @include flexible();
-
-    @include mq($phone) {
-        flex-direction: column;
-        align-items: flex-start;
-    }
 }
 
 .item {
@@ -33,18 +28,6 @@
         &:after {
             content: '|';
             padding: 0 10px;
-        }
-    }
-
-    @include mq($phone) {
-        flex-direction: column;
-        align-items: flex-start;
-
-        &:not(:last-of-type) {
-            &:after {
-                content: '—';
-                padding: 2px 0;
-            }
         }
     }
 }

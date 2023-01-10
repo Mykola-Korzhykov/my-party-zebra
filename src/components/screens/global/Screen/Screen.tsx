@@ -2,7 +2,7 @@ import { FC } from 'react';
 import Image from 'next/legacy/image';
 
 import { IUploadFull } from '@shared/interfaces/IUpload';
-import ILink from '@shared/interfaces/Button/ILink';
+import IMenuItem from '@shared/interfaces/Menu/IMenuItem';
 import UploadDTO from '@shared/dto/uploadDTO';
 
 import Button from '@components/ui/Button/Button';
@@ -16,7 +16,7 @@ type Props = {
         colorTitle: string;
         colorTitlePlace: 'start' | 'end';
         description: string;
-        button: ILink;
+        button: IMenuItem;
         image: string;
         sectionId: string;
     };
@@ -28,6 +28,7 @@ const Screen: FC<Props> = ({data, themeColor}) => {
     const {title, colorTitle, colorTitlePlace, description, button, image, sectionId} = data;
 
     const imageUrl = screenImages[image][themeColor];
+    const buttonType = button.type === 'internal_link' || button.type === 'external_link' ? 'link' : button.type;
 
     return (
         <section className={styles.section} id={sectionId}>
@@ -39,7 +40,7 @@ const Screen: FC<Props> = ({data, themeColor}) => {
                         </h1>
 
                         <p className={styles.description}>{description}</p>
-                        <Button type="link" variety="theme" text={button.text} href={button.href}  customClass={styles.button} />
+                        <Button type={buttonType} variety="theme" text={button.text} href={button.href}  customClass={styles.button} />
                     </div>
                 
                     <div className={styles.image}>
