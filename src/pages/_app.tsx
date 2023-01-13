@@ -4,6 +4,9 @@ import App, { AppContext, AppInitialProps, AppProps } from 'next/app'
 import Head from 'next/head';
 import AOS from 'aos';
 
+import { hotjar } from 'react-hotjar'
+import { GoogleAnalytics } from "nextjs-google-analytics";
+
 import axios from 'axios';
 import api from '@shared/http';
 
@@ -47,6 +50,8 @@ const CustomApp = ({Component, pageProps, env, props}: AppOwnProps & AppProps) =
   const themeColorHEX = themeColors[theme.color];
 
   useEffect(() => {
+    hotjar.initialize(parseInt(env.HJID), parseInt(env.HJSV), true);
+
     AOS.init({once: true});
     localStorage.removeItem('selectedPrograms');
     localStorage.removeItem('isDecor');
@@ -93,6 +98,7 @@ const CustomApp = ({Component, pageProps, env, props}: AppOwnProps & AppProps) =
 
       <Provider store={store}>
         <Layout data={{meta: metaData, layout: layoutData, locales: localesData}}>
+          <GoogleAnalytics trackPageViews />
           <Component {...pageProps} />
         </Layout>
       </Provider>

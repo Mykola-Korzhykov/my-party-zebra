@@ -85,7 +85,10 @@ const Organize: FC<Props> = ({programs, content}) => {
             }
 
             if(currentStep === 2) {
-                const validateResult = validateFields({serviceSelect, programsSelect: {...programsSelect, id: 'programs-select', value: JSON.parse(localStorage.getItem('selectedPrograms'))}});
+                let fields: any = {serviceSelect};
+                if(!localStorage.getItem('isDecor')) fields['programsSelect'] = {...programsSelect, id: 'programs-select', value: JSON.parse(localStorage.getItem('selectedPrograms'))};
+
+                const validateResult = validateFields(fields);
                 if(!validateResult) return;
             }
 

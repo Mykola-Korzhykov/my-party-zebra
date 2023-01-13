@@ -40,7 +40,9 @@ const getConfig = async () => {
       UPLOADS_URL: process.env.UPLOADS_URL,
       MAP_ACCESS_TOKEN: process.env.MAP_ACCESS_TOKEN,
       TG_BOT_TOKEN: process.env.TG_BOT_TOKEN,
-      TG_CHAT_ID: process.env.TG_CHAT_ID
+      TG_CHAT_ID: process.env.TG_CHAT_ID,
+      HJID: process.env.HJID,
+      HJSV: process.env.HJSV
     },
     webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
       config.resolve.alias = {

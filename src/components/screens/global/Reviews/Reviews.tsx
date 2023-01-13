@@ -24,7 +24,7 @@ const Reviews: FC<Props> = ({data}) => {
             <div className="container">
                 <div className={styles.sectionRow}>
                     <h3 className={styles.sectionTitle}>{sectionTitle}</h3>
-                    <Button type="link" variety="theme" text={button.text} href={button.href} customClass={styles.button} />
+                    <Button type="link" variety="theme" target='_blank' text={button.text} href={button.href} customClass={styles.button} />
                 </div>
 
                 <ul className={styles.list}>
@@ -35,14 +35,14 @@ const Reviews: FC<Props> = ({data}) => {
                                 <p className={styles.text}>{text}</p>
                             </div>
 
-                            <Link href={link.href ?? ''} legacyBehavior>
-                                <a className={styles.link}>{link.text}</a>
+                            <Link href={link.href ?? ''} target="_blank" legacyBehavior>
+                                <a className={styles.link} target="_blank">{link.text}</a>
                             </Link>
                         </li>
                     ))}
                 </ul>
 
-                <Button type="link" variety="theme" text={button.text} href={button.href} customClass={styles.buttonMobile} />
+                <Button type="link" variety="theme" target='_blank' text={button.text} href={button.href} customClass={styles.buttonMobile} />
             </div>
         </section>
     );

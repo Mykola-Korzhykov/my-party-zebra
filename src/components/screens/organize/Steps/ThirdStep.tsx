@@ -49,7 +49,7 @@ const ThirdStep: FC<Props> = ({isActive, nameInput, phoneInput, parentSelect, ch
                 <div className="input-wrapper">
                     <label htmlFor="theme">{phoneInput.label}</label>
                     <div className={`input-container`}>
-                        <input type="tel" name="theme" placeholder={phoneInput.placeholder} id="phone-input" value={phoneInputState.value}
+                        <input type="tel" onKeyUp={(e: any) => e.target.value = e.target.value.replace("/[^\d]/g,''")} name="theme" placeholder={phoneInput.placeholder} id="phone-input" value={phoneInputState.value}
                                 onInput={e => dispatch(setPhoneInput({...phoneInputState, value: (e.target as HTMLInputElement).value}))} ref={phoneInputRef} />
                     </div>
                 </div>

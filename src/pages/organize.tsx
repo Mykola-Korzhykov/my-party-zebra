@@ -32,6 +32,7 @@ const OrganizePage: NextPage<any> = ({content, programs}) => {
       const allInputs = document.querySelectorAll('input');
       const allDateInputs = document.querySelectorAll('input[type="date"]');
       const allTimeInputs = document.querySelectorAll('input[type="time"]');
+      const phoneInputs = document.querySelectorAll("input[type='tel']");
   
       allInputs.forEach(input => {
         input.addEventListener('input', () => {
@@ -41,6 +42,11 @@ const OrganizePage: NextPage<any> = ({content, programs}) => {
   
       allDateInputs.forEach(input => input.addEventListener('focus', (e: any) => e.target.showPicker()));
       allTimeInputs.forEach(input => input.addEventListener('focus', (e: any) => e.target.showPicker()));
+      phoneInputs.forEach(input => {
+        input.addEventListener('input', e => {
+          (e.target as HTMLInputElement).value = (e.target as HTMLInputElement).value.replace(/[^\d+]/g, "");
+        });
+      });
     });
 
     return (

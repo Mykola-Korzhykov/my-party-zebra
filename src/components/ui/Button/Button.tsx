@@ -11,10 +11,11 @@ type Props = {
     customClass?: string,
     handleClick?: MouseEventHandler<HTMLButtonElement>
     disabled?: boolean,
-    dataAos?: string
+    dataAos?: string,
+    target?: string
 }
 
-const Button: FC<Props> = ({type, text, href = '#', variety = '', customClass = '', handleClick, disabled, dataAos = ''}) => {
+const Button: FC<Props> = ({type, text, href = '#', variety = '', customClass = '', handleClick, target = '_self', disabled, dataAos = ''}) => {
     const style = `${styles.default} ${styles[variety]} ${customClass}`;
 
     return (
@@ -35,8 +36,8 @@ const Button: FC<Props> = ({type, text, href = '#', variety = '', customClass = 
             </a>}
             
             {type === 'link' &&
-            <Link href={href ?? ''} legacyBehavior>
-                <a className={style} data-aos={dataAos}>{text}</a>
+            <Link href={href ?? ''} target={target} legacyBehavior>
+                <a className={style} data-aos={dataAos} target={target}>{text}</a>
             </Link>}
         </div>
     );
