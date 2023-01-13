@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_inputs_inputs",
+  "info": {
+    "displayName": "Input"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "placeholder": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

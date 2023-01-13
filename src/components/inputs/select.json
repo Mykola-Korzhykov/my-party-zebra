@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_inputs_selects",
+  "info": {
+    "displayName": "Select",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "placeholder": {
+      "type": "string",
+      "required": true
+    },
+    "list": {
+      "displayName": "Select Item",
+      "type": "component",
+      "repeatable": true,
+      "component": "inputs.select-item",
+      "required": false
+    }
+  }
+}

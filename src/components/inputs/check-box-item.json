@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_inputs_check_box_items",
+  "info": {
+    "displayName": "CheckBox Item"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "isDefault": {
+      "type": "boolean"
+    }
+  }
+}

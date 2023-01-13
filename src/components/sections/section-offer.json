@@ -1,7 +1,8 @@
 {
   "collectionName": "components_sections_section_offer_s",
   "info": {
-    "displayName": "Section [Offer]"
+    "displayName": "Section [Offer]",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -28,11 +29,16 @@
       "required": true
     },
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "isCustom": {
+      "type": "boolean",
+      "default": false,
       "required": true
     }
   }

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_inputs_check_boxes",
+  "info": {
+    "displayName": "CheckBox"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "items": {
+      "displayName": "CheckBox Item",
+      "type": "component",
+      "repeatable": true,
+      "component": "inputs.check-box-item",
+      "required": true
+    }
+  }
+}
