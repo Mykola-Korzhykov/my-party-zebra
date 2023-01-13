@@ -11,7 +11,7 @@ interface Props extends IFaqItem {
 }
 
 const FaqItem: FC<Props> = ({question, answer, onToggle, active}) => {
-    const answerWrapper = useRef<HTMLDivElement>(null);
+    const answerWrapper = useRef<HTMLDivElement | null>(null);
 
     return (
         <li className={styles.item}>

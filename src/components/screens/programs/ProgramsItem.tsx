@@ -2,6 +2,8 @@ import { FC, useState, Dispatch, SetStateAction } from 'react';
 import Image from 'next/legacy/image';
 
 import IProgramsItem from '@shared/interfaces/Data/Programs/IProgramsItem';
+import ISelectedProgramsItem from '@shared/interfaces/Data/Programs/ISelectedProgramsItem';
+
 import Button from '@components/ui/Button/Button';
 
 import styles from './Programs.module.scss';
@@ -10,7 +12,7 @@ type Props = {
     content: IProgramsItem;
     selectButtonText: string;
     selectedButtonText: string;
-    setSelectedList: Dispatch<SetStateAction<IProgramsItem[]>>;
+    setSelectedList: Dispatch<SetStateAction<ISelectedProgramsItem[]>>;
 }
 
 const ProgramsItem: FC<Props> = ({content, selectButtonText, selectedButtonText, setSelectedList}) => {
@@ -22,7 +24,7 @@ const ProgramsItem: FC<Props> = ({content, selectButtonText, selectedButtonText,
         setIsSelected(!isSelected);
         
         if(!isSelected) {
-            setSelectedList((oldValue) => [...oldValue, content]);
+            setSelectedList((oldValue) => [...oldValue, {title, animatorsCount: 1}]);
         } else {
             setSelectedList((oldValue) => oldValue.filter(item => item.title !== title));
         }

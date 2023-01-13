@@ -2,6 +2,8 @@ import { FC, Dispatch, SetStateAction, useState, useEffect } from 'react';
 import Image from 'next/legacy/image';
 
 import IProgramsItem from '@shared/interfaces/Data/Programs/IProgramsItem';
+import ISelectedProgramsItem from '@shared/interfaces/Data/Programs/ISelectedProgramsItem';
+
 import Button from '@components/ui/Button/Button';
 
 import styles from './Programs.module.scss';
@@ -11,7 +13,7 @@ type Props = {
     list: IProgramsItem[];
     selectButtonText: string;
     selectedButtonText: string;
-    setSelectedList: Dispatch<SetStateAction<IProgramsItem[]>>;
+    setSelectedList: Dispatch<SetStateAction<ISelectedProgramsItem[]>>;
 }
 
 const ProgramsList: FC<Props> = ({list, selectButtonText, selectedButtonText, setSelectedList}) => {

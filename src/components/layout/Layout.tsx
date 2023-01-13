@@ -25,7 +25,7 @@ const Layout: FC<Props> = ({data, children}) => {
     const [isSticky, setIsSticky] = useState<boolean>(false);
     const [headerHeight, setHeaderHeight] = useState<number>(0);
 
-    const headerRef = useRef<HTMLElement>(null);
+    const headerRef = useRef<HTMLElement | null>(null);
 
     const dispatch = useAppDispatch();
     const router = useRouter();

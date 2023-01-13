@@ -1,0 +1,81 @@
+/* ---- CheckBox ---- */
+@import '@resources';
+
+.wrapper {
+    @include flexible();
+    @include transition();
+    cursor: pointer;
+
+    &:hover {
+        @include link-hover();
+    }
+}
+
+.icon {
+    @include transition();
+    opacity: 0.4;
+}
+
+.value {
+    @include transition();
+    @include font-size(20px);
+    @include color-opacity($black-1, 0.4);
+    font-weight: 400;
+    margin-left: 10px;
+    user-select: none;
+}
+
+.active {
+    @include transition();
+
+    & .icon {
+        @include transition();
+        opacity: 1;
+
+        & circle {
+            @include transition();
+            stroke: var(--theme-color);
+        }
+
+        & circle[r="7"] {
+            @include transition();
+            fill: var(--theme-color);
+        }
+    }
+
+    & .value {
+        @include transition();
+        color: var(--theme-color);
+    }
+}
+
+@media (hover: none) {
+    .icon {
+        opacity: 0.4 !important;
+    }
+
+    .value {
+        @include color-opacity($black-1, 0.4);
+    }
+
+    .active {
+        & .icon {
+            opacity: 1 !important;
+
+            & circle {
+                @include transition();
+                stroke: var(--theme-color) !important;
+            }
+
+            & circle[r="7"] {
+                @include transition();
+                fill: var(--theme-color) !important;
+            }
+        }
+
+        .value {
+            @include transition();
+            color: var(--theme-color) !important;
+        }
+    }
+}

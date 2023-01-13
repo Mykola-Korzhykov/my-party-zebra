@@ -20,7 +20,7 @@ const AgeGroups: FC<Props> = ({data}) => {
     const {sectionTitle, sectionId, list, button} = data;
 
     return (
-        <section className={styles.section} id={sectionId}>
+        <section className={styles.section} id={sectionId} data-aos="fade-up">
             <div className="container">
                 <h3 className={styles.sectionTitle}>{sectionTitle}</h3>
 

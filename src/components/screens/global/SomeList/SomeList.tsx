@@ -33,7 +33,7 @@ const SomeList: FC<Props> = ({data, buttons}) => {
     });
 
     return (
-        <section className={styles.section} id={sectionId}>
+        <section className={styles.section} id={sectionId} data-aos="fade-up">
             <div className="container">
                 <ul className={styles.list}>
                     <li className={styles.sectionTitleItem}>

@@ -1,0 +1,177 @@
+/* ---- Organize ---- */
+@import '@resources';
+
+.step {
+    @include fade(out);
+    position: absolute;
+    left: -1000px;
+    top: -100px;
+    margin-top: 50px;
+
+    @include mq($tablet-large) {
+        margin-top: 40px;
+    }
+
+    @include mq($phablet) {
+        margin-top: 32px;
+    }
+}
+
+.stepActive {
+    @include fade(in);
+    position: static;
+}
+
+.buttons {
+    @include flexible();
+    justify-content: flex-end;
+    gap: 30px;
+    margin-top: 80px;
+
+    @include mq($phablet) {
+        margin-top: 50px;
+    }
+
+    @include mq($phone) {
+        gap: 10px;
+    }
+}
+
+.back,
+.next {
+    padding: 10px 35px;
+    border-radius: 48px;
+
+    @include mq($phablet) {
+        @include font-size(18px);
+        padding: 10px 20px;
+    }
+}
+
+.inputRow {
+    display: grid;
+    grid-template-columns: repeat(2, 0.5fr);
+    gap: 30px;
+
+    @include mq($tablet-large) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.selectRow {
+    display: grid;
+    grid-template-columns: repeat(2, 0.325fr);
+    gap: 30px;
+
+    @include mq($tablet-large) {
+        grid-template-columns: repeat(2, 0.5fr);
+    }
+
+    @include mq($phablet) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.secondRow {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+
+    @include mq($tablet) {
+        flex-direction: column;
+    }
+}
+
+.budgetSelect {
+    width: rem(285);
+
+    @include mq($tablet) {
+        width: 100%;
+    }
+}
+
+.checkBoxes {
+    @include flexible();
+    gap: 30px;
+    margin-top: 28px;
+}
+
+.programs {
+    @include flexible();
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 38px;
+}
+
+.programsItem {
+    @include flexible();
+    @include transition();
+    @include color-opacity($black-1, 0.3);
+    @include font-size(18px);
+    gap: 10px;
+    width: fit-content;
+    background: $gray-1;
+    padding: 12px 20px;
+    border-radius: 42px;
+    user-select: none;
+    cursor: pointer;
+    border: 2px solid rgba(0, 0, 0, 0);
+
+    & svg {
+        & path {
+            @include transition();
+            stroke: rgba($black-1, 0.3);
+        }
+
+        &:hover {
+            & path {
+                @include transition();
+                stroke: $red-color !important;
+            }
+
+            .programsItem {
+                border-color: $red-color !important;
+            }
+        }
+    }
+
+    &:hover {
+        @include transition();
+        border-color: var(--theme-color);
+        color: var(--theme-color);
+
+        & svg path {
+            @include transition();
+            stroke: var(--theme-color);
+        }
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 0.3fr);
+    gap: 30px;
+
+    @include mq($tablet-large) {
+        grid-template-columns: repeat(2, 0.5fr);
+    }
+
+    @include mq($phablet) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.flex {
+    display: grid;
+    grid-template-columns: repeat(2, 0.2fr);
+    gap: 30px;
+    margin-top: 30px;
+
+    @include mq($phablet) {
+        grid-template-columns: repeat(2, 0.5fr);
+    }
+
+    @include mq($phone) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

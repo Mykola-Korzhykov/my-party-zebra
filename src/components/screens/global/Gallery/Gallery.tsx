@@ -1,6 +1,8 @@
 import { FC, useRef } from 'react';
 import Image from 'next/legacy/image';
 
+import { SwiperRef } from 'swiper/react';
+
 import { IUpload, IUploadFullWithoutData } from '@shared/interfaces/IUpload';
 import UploadDTO from '@shared/dto/uploadDTO';
 
@@ -20,7 +22,7 @@ type Props = {
 
 const Gallery: FC<Props> = ({data}) => {
     const {sectionTitle, sectionId, images} = data;
-    const swiperRef = useRef(null);
+    const swiperRef = useRef<SwiperRef | null>(null);
 
     const sortImages: IUpload[] = [];
     images.data.forEach((image) => sortImages.push(new UploadDTO(image)));
@@ -29,7 +31,7 @@ const Gallery: FC<Props> = ({data}) => {
     const nextSlide = () => swiperRef.current.swiper.slideNext();
 
     return (
-        <section className={styles.section} id={sectionId}>
+        <section className={styles.section} id={sectionId} data-aos="fade-up">
             <div className="container" style={{position: 'relative'}}>
                 <Cubic className="cubicBefore" />
 

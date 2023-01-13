@@ -30,7 +30,7 @@ const Services: FC<Props> = ({data}) => {
     });
 
     return (
-        <section className={styles.section} id={sectionId}>
+        <section className={styles.section} id={sectionId} data-aos="fade-up">
             <div className="container">
                 <h2 className={styles.sectionTitle}>{sectionTitle}</h2>
                 <ServicesList list={sortList} />

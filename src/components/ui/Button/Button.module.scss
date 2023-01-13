@@ -7,6 +7,8 @@
     font-family: 'Zebra', sans-serif !important;
     text-align: center;
     cursor: pointer;
+    user-select: none;
+    pointer-events: all !important;
 
     &:after {
         @include transition();
@@ -63,4 +65,14 @@
 .white {
     background: $white-1;
     color: var(--theme-color);
+}
+
+@media (hover: none) {
+    .themeGhost {
+        &:hover {
+            background: none !important;
+            border: 2px solid var(--theme-color) !important;
+            color: var(--theme-color) !important;
+        }
+    }
 }

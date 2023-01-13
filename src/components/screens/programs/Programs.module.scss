@@ -28,7 +28,7 @@
     flex-direction: column;
     justify-content: space-between;
     background: $gray-1;
-    border-radius: 0px 0px 20px 20px;
+    border-radius: 20px 20px;
     padding-bottom: 20px;
 }
 
@@ -97,6 +97,7 @@
     position: fixed;
     right: 50px;
     bottom: 50px;
+    cursor: pointer;
 
     & ellipse {
         fill: var(--theme-color);

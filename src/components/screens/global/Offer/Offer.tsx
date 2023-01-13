@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import Router from 'next/router';
 import Image from 'next/legacy/image';
 
 import { IUploadFull } from '@shared/interfaces/IUpload';
@@ -16,16 +17,22 @@ type Props = {
         firstText: string;
         secondText: string;
         button: ILink;
-        image: IUploadFull
+        image: IUploadFull;
+        isCustom: boolean;
     }
 }
 
 const Offer: FC<Props> = ({data}) => {
-    const {title, sectionId, firstText, secondText, button, image} = data;
+    const {title, sectionId, firstText, secondText, button, image, isCustom} = data;
     const imageUpload = new UploadDTO(image);
 
+    const toOrganize = () => {
+        Router.push({pathname: '/organize'});
+        localStorage.setItem('isDecor', 'true');
+    }
+
     return (
-        <section className={styles.section} id={sectionId}>
+        <section className={styles.section} id={sectionId} data-aos="fade-up">
             <div className={styles.image}>
                 <Image src={imageUpload.url} blurDataURL={imageUpload.url} alt={imageUpload.alt} placeholder="blur" layout="fill" />
             </div>
@@ -35,7 +42,8 @@ const Offer: FC<Props> = ({data}) => {
                 <p className={styles.text}>{firstText}</p>
                 <p className={styles.text}>{secondText}</p>
 
-                <Button type="link" variety="white" text={button.text} href={button.href} customClass={styles.button} />
+                {!isCustom && <Button type="link" variety="white" text={button.text} href={button.href} customClass={styles.button} />}
+                {isCustom && <Button type="button" variety="white" text={button.text} customClass={styles.button} handleClick={toOrganize} />}
             </div>
         </section>
     );

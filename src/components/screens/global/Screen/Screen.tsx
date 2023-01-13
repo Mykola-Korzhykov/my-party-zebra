@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useRouter } from 'next/router';
 import Image from 'next/legacy/image';
 
 import { IUploadFull } from '@shared/interfaces/IUpload';
@@ -27,11 +28,18 @@ type Props = {
 const Screen: FC<Props> = ({data, themeColor}) => {
     const {title, colorTitle, colorTitlePlace, description, button, image, sectionId} = data;
 
+    const router = useRouter();
+
     const imageUrl = screenImages[image][themeColor];
     const buttonType = button.type === 'internal_link' || button.type === 'external_link' ? 'link' : button.type;
 
+    const toOrganize = () => {
+        router.push({pathname: '/organize'});
+        localStorage.setItem('isDecor', 'true');
+    }
+
     return (
-        <section className={styles.section} id={sectionId}>
+        <section className={styles.section} id={sectionId} data-aos="fade-up">
             <div className="container">
                 <div className={styles.wrapper}>
                     <div className={styles.content}>
@@ -40,7 +48,10 @@ const Screen: FC<Props> = ({data, themeColor}) => {
                         </h1>
 
                         <p className={styles.description}>{description}</p>
-                        <Button type={buttonType} variety="theme" text={button.text} href={button.href}  customClass={styles.button} />
+
+                        {(buttonType === 'link' && button.href === '/organize' && router.pathname === '/decor') ?
+                        <Button type="button" variety="theme" text={button.text} handleClick={toOrganize} customClass={styles.button} /> :
+                        <Button type={buttonType} variety="theme" text={button.text} href={button.href}  customClass={styles.button} />}
                     </div>
                 
                     <div className={styles.image}>

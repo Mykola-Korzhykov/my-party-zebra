@@ -26,7 +26,7 @@ const getConfig = async () => {
   const defaultLocaleCode = await getDefaultLocale(localesList);
 
   return withPWA({
-    reactStrictMode: true,
+    reactStrictMode: false,
     swcMinify: true,
     images: {domains: ['localhost', 'panel.mypartyzebra.com', 'mypartyzebra.com']},
     i18n: {
@@ -38,7 +38,9 @@ const getConfig = async () => {
       FRONTEND_URL: process.env.FRONTEND_URL,
       API_URL: process.env.API_URL,
       UPLOADS_URL: process.env.UPLOADS_URL,
-      MAP_ACCESS_TOKEN: process.env.MAP_ACCESS_TOKEN
+      MAP_ACCESS_TOKEN: process.env.MAP_ACCESS_TOKEN,
+      TG_BOT_TOKEN: process.env.TG_BOT_TOKEN,
+      TG_CHAT_ID: process.env.TG_CHAT_ID
     },
     webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
       config.resolve.alias = {

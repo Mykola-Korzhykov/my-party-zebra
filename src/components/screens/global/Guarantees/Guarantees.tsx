@@ -31,7 +31,7 @@ const Guarantees: FC<Props> = ({data}) => {
     }
 
     return (
-        <section className={styles.section} id={sectionId}>
+        <section className={styles.section} id={sectionId} data-aos="fade-up">
             <div className="container">
                 <h3 className={styles.sectionTitle}>{sectionTitle}</h3>
                 <ul className={styles.list}>

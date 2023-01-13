@@ -21,7 +21,8 @@ body {
     @include font-size($font-size);
     font-weight: $font-weight;
     color: $font-color;
-    overflow-x: hidden !important;
+    overflow-x: hidden;
+    overflow: auto !important;
     padding-right: 0 !important;
 }
 
@@ -111,26 +112,98 @@ button {
     font-size: inherit;
 }
 
+.input-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container {
+    @include flexible();
+    position: relative;
+    justify-content: space-between;
+
+    & svg {
+        position: absolute;
+        right: 20px !important;
+        top: 25px;
+        width: 24px;
+        height: 24px;
+        
+        & path {
+            @include transition();
+            stroke: rgba($black-1, 0.4);
+        }
+    }
+}
+
+label {
+    font-weight: 500;
+}
+
 input {
     @include transition();
-    padding: 14px 0 14px 14px;
-    background: $white-1;
+    @include font-size(20px);
+    padding: 14px 20px;
     border: 2px solid $white-1;
-
+    background: $gray-1;
     color: $black-1;
+    margin-top: 10px;
+    width: 100%;
+    border-radius: 5px;
 
     &::placeholder {
-        opacity: 0.7;
+        @include color-opacity($black-1, 0.4);
     }
 
     &:focus {
         @include transition();
         border-color: var(--theme-color);
+
+        & + svg {
+            & path {
+                @include transition();
+                stroke: var(--theme-color);
+            }
+        }
+    }
+}
+
+input[type="date"],
+input[type="time"] {
+    @include transition();
+    @include color-opacity($black-1, 0.4);
+    cursor: pointer;
+
+    &::-webkit-calendar-picker-indicator {
+        @include transition();
+        opacity: 0.4;
     }
 
-    &.wrong {
-        border-color: $red-color;
+    &:focus {
+        @include transition();
+        color: var(--theme-color) !important;
+        border-color: var(--theme-color) !important;
+
+        &::-webkit-calendar-picker-indicator {
+            @include transition();
+            opacity: 1;
+            filter: invert(77%) sepia(11%) saturate(1112%) hue-rotate(212deg) brightness(94%) contrast(94%);
+        }
     }
+
+    &::-webkit-datetime-edit:focus,
+    &::-webkit-datetime-edit:focus,
+    &::-webkit-datetime-edit:focus {
+        @include transition();
+        background: var(--theme-color) !important;
+        color: #fff !important;
+    }
+}
+
+label {
+    @include font-size(20px);
+    user-select: none;
 }
 
 button {
@@ -146,8 +219,26 @@ button {
     @include first-screen-bg();
 }
 
-.next-page[data-path="/404"] #footer {
+.next-page[data-path="/404"] #footer,
+.next-page[data-path="/organize"] #footer {
     display: none;
+}
+
+.error {
+    @include transition();
+    border-color: $red-color !important;
+    color: $red-color !important;
+
+    & p {
+        @include transition();
+        color: $red-color !important;
+    }
+
+    & svg path,
+    & + svg path {
+        @include transition();
+        stroke: $red-color !important;
+    }
 }
 
 /* ---- Scroll ---- */
@@ -182,15 +273,53 @@ button {
     overflow: hidden !important;
 }
 
-.error_show {
-    @include fade(in);
-    opacity: 1 !important;
+/* ---- Other ---- */
+.swal2-container {
+    font-family: inherit;
 }
 
-/* ---- Other ---- */
+.swal2-title {
+    font-size: 36px !important;
+    font-weight: 600 !important;
+
+    @include mq($phablet) {
+        font-size: 30px !important;
+    }
+
+    @include mq(350) {
+        font-size: 26px !important;
+    }
+}
+
+.swal2-html-container {
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    color: rgba($black-1, 0.5) !important;
+
+    @include mq($phablet) {
+        font-size: 18px !important;
+    }
+
+    @include mq(350) {
+        font-size: 16px !important;
+    }
+} 
+
 .swal2-styled.swal2-confirm {
-    border-radius: 0 !important;
+    padding: 15px 25px !important;
+    width: fit-content !important;
+    border-radius: 70px !important;
+    font-size: 20px !important;
     background-color: var(--theme-color) !important;
+
+    @include mq($phablet) {
+        padding: 10px 20px !important;
+        font-size: 18px !important;
+    }
+
+    @include mq(350) {
+        font-size: 16px !important;
+    }
 }
 
 .swal2-icon.swal2-success .swal2-success-ring {

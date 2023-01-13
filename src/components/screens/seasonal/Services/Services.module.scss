@@ -30,7 +30,7 @@
 
 .item {
     background: $gray-1;
-    border-radius: 0px 0px 20px 20px;
+    border-radius: 20px;
 
     @include mq($phablet) {
         min-width: rem(170);

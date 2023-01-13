@@ -20,7 +20,7 @@ const Reviews: FC<Props> = ({data}) => {
     const {sectionTitle, sectionId, button, list} = data;
 
     return (
-        <section className={styles.section} id={sectionId}>
+        <section className={styles.section} id={sectionId} data-aos="fade-up">
             <div className="container">
                 <div className={styles.sectionRow}>
                     <h3 className={styles.sectionTitle}>{sectionTitle}</h3>

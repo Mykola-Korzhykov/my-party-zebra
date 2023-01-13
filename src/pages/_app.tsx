@@ -2,6 +2,7 @@ import { GetServerSideProps } from 'next';
 import { useEffect } from 'react';
 import App, { AppContext, AppInitialProps, AppProps } from 'next/app'
 import Head from 'next/head';
+import AOS from 'aos';
 
 import axios from 'axios';
 import api from '@shared/http';
@@ -22,6 +23,7 @@ import Layout from '@components/layout/Layout';
 
 import themeColors from '@data/themeColors';
 
+import 'aos/dist/aos.css';
 import '@styles/global.scss';
 
 interface AppOwnProps {
@@ -44,6 +46,12 @@ const CustomApp = ({Component, pageProps, env, props}: AppOwnProps & AppProps) =
 
   const themeColorHEX = themeColors[theme.color];
 
+  useEffect(() => {
+    AOS.init({once: true});
+    localStorage.removeItem('selectedPrograms');
+    localStorage.removeItem('isDecor');
+  }, []);
+
   return (
     <>
       <Head>
@@ -62,6 +70,9 @@ const CustomApp = ({Component, pageProps, env, props}: AppOwnProps & AppProps) =
         <link rel="preload" href="/fonts/Zebra-Regular.woff2" as="font" type="font/woff2" crossOrigin="true" />
         <link rel="preload" href="/fonts/Zebra-Medium.woff2" as="font" type="font/woff2" crossOrigin="true" />
         <link rel="preload" href="/fonts/Zebra-Bold.woff2" as="font" type="font/woff2" crossOrigin="true" />
+
+        {/* Styles */}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
       </Head>
 
       <DefaultSeo

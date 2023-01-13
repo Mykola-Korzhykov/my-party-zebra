@@ -1,0 +1,95 @@
+/* ---- Navigation ---- */
+@import '@resources';
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    pointer-events: none;
+
+    @include mq($tablet-large) {
+        display: flex;
+        align-items: stretch;
+        overflow-x: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+
+.item {
+    @include flexible();
+    @include transition();
+    background: $gray-1;
+    padding: 20px;
+    border-radius: 5px;
+
+    @include mq($tablet-large) {
+        min-width: rem(300);
+    }
+}
+
+.icon {
+    width: 74px;
+    height: 74px;
+
+    & circle {
+        fill: $white-1;
+    }
+
+    & path {
+        stroke: rgba($black-1, 0.4);
+    }
+
+    @include mq($tablet-large) {
+        width: 65px;
+        height: 65px;
+    }
+}
+
+.content {
+    margin-left: 20px;
+}
+
+.title {
+    @include font-size(28px);
+    @include color-opacity($black-1, 0.4);
+    font-weight: 500;
+    user-select: none;
+
+    @include mq($tablet-large) {
+        @include font-size(24px);
+    }
+}
+
+.description {
+    @include font-size(18px);
+    @include color-opacity($black-1, 0.4);
+    font-weight: 400;
+    margin-top: 5px;
+    user-select: none;
+
+    @include mq($tablet-large) {
+        @include font-size(16px);
+    }
+}
+
+.itemActive {
+    @include transition();
+    background: var(--theme-color);
+
+    & .icon {
+        & path {
+            stroke: var(--theme-color);
+        }
+    }
+
+    & .title {
+        color: #fff;
+    }
+
+    & .description {
+        @include color-opacity(#fff, 0.4);
+    }
+}

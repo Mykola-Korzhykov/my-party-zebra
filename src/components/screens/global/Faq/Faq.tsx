@@ -26,7 +26,7 @@ const Faq: FC<Props> = ({data, themeColor}) => {
     const image = faqImages[themeColor];
 
     return (
-        <section className={styles.section} id={sectionId}>
+        <section className={styles.section} id={sectionId} data-aos="fade-up">
             <div className="container">
                 <div className={styles.wrapper}>
                     <FaqContent title={title} colorTitle={colorTitle} image={image} />

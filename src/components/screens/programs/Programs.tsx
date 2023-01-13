@@ -1,4 +1,6 @@
 import { FC, useState, useRef, useEffect } from 'react';
+
+import Router from 'next/router';
 import Link from 'next/link';
 
 import { IUploadFull } from '@shared/interfaces/IUpload';
@@ -8,6 +10,7 @@ import anchorClick from '@helpers/anchorClick';
 
 import IPrograms from '@shared/interfaces/Data/Programs/IPrograms';
 import IProgramsItem from '@shared/interfaces/Data/Programs/IProgramsItem';
+import ISelectedProgramsItem from '@shared/interfaces/Data/Programs/ISelectedProgramsItem';
 
 import Button from '@components/ui/Button/Button';
 import ProgramsList from './ProgramsList';
@@ -36,26 +39,35 @@ const Programs: FC<Props> = ({data}) => {
     });
     const sortList = fixList.filter((item, index) => (index + 1) <= 4);
 
-    const [selectedList, setSelectedList] = useState<IProgramsItem[]>([]);
+    const [selectedList, setSelectedList] = useState<ISelectedProgramsItem[]>([]);
     const [isListFull, setIsListFull] = useState<boolean>(false);
     const [isLinkShow, setIsLinkShow] = useState<boolean>(false);
+    
+    const sectionRef = useRef<HTMLElement | null>(null);
 
-    const sectionRef = useRef(null);
+    const handleClick = () => {
+        setIsListFull(!isListFull);
+        sectionRef?.current?.scrollIntoView({behavior: 'smooth'});
+    };
 
-    const handleClick = () => setIsListFull(!isListFull);
+    const toOrganize = () => {
+        Router.push({
+            pathname: '/organize'
+        });
+
+        localStorage.setItem('selectedPrograms', JSON.stringify(selectedList));
+    }
 
     useEffect(() => {
-        sectionRef?.current.scrollIntoView({behavior: 'smooth'});
-    }, [isListFull]);
+        localStorage.setItem('selectedPrograms', JSON.stringify([]));
+    }, []);
 
     useEffect(() => {
         selectedList.length > 0 ? setIsLinkShow(true) : setIsLinkShow(false);
-
-        console.log(selectedList)
     }, [selectedList]);
 
     return (
-        <section className={styles.section} id={sectionId} ref={sectionRef}>
+        <section className={styles.section} id={sectionId} ref={sectionRef} data-aos="fade-up">
             <div className="container">
                 <h2 className={styles.sectionTitle}>{sectionTitle}</h2>
 
@@ -67,9 +79,9 @@ const Programs: FC<Props> = ({data}) => {
                         text={isListFull ? hideButtonText : showButtonText} 
                         handleClick={handleClick} customClass={styles.button} />}
 
-                <Link href="/book">
+                <button type="button" onClick={toOrganize}>
                     <ProgramsLink isShow={isLinkShow} />
-                </Link>
+                </button>
             </div>
         </section>
     );
