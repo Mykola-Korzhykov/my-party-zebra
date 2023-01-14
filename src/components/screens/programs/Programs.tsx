@@ -14,7 +14,6 @@ import ISelectedProgramsItem from '@shared/interfaces/Data/Programs/ISelectedPro
 
 import Button from '@components/ui/Button/Button';
 import ProgramsList from './ProgramsList';
-import ProgramsLink from './ProgramsLink';
 
 import styles from './Programs.module.scss';
 
@@ -41,7 +40,6 @@ const Programs: FC<Props> = ({data}) => {
 
     const [selectedList, setSelectedList] = useState<ISelectedProgramsItem[]>([]);
     const [isListFull, setIsListFull] = useState<boolean>(false);
-    const [isLinkShow, setIsLinkShow] = useState<boolean>(false);
     
     const sectionRef = useRef<HTMLElement | null>(null);
 
@@ -50,38 +48,22 @@ const Programs: FC<Props> = ({data}) => {
         if(isListFull) sectionRef?.current?.scrollIntoView({behavior: 'smooth'});
     };
 
-    const toOrganize = () => {
-        Router.push({
-            pathname: '/organize'
-        });
-
-        localStorage.setItem('selectedPrograms', JSON.stringify(selectedList));
-    }
-
     useEffect(() => {
         localStorage.setItem('selectedPrograms', JSON.stringify([]));
     }, []);
-
-    useEffect(() => {
-        selectedList.length > 0 ? setIsLinkShow(true) : setIsLinkShow(false);
-    }, [selectedList]);
 
     return (
         <section className={styles.section} id={sectionId} ref={sectionRef} data-aos="fade-up">
             <div className="container">
                 <h2 className={styles.sectionTitle}>{sectionTitle}</h2>
 
-                <ProgramsList list={isListFull ? fixList : sortList} selectButtonText={selectButtonText} selectedButtonText={selectedButtonText} setSelectedList={setSelectedList} />
+                <ProgramsList list={isListFull ? fixList : sortList} selectButtonText={selectButtonText} selectedButtonText={selectedButtonText} selectedList={selectedList} setSelectedList={setSelectedList} />
 
-                {((isLinkShow && !isListFull) || (isListFull && !isLinkShow) || (!isLinkShow && !isListFull)) && 
+                {((selectedList.length > 0 && !isListFull) || (isListFull && selectedList.length === 0) || (selectedList.length === 0 && !isListFull)) && 
                 <Button type="button" 
                         variety="theme" 
                         text={isListFull ? hideButtonText : showButtonText} 
                         handleClick={handleClick} customClass={styles.button} />}
-
-                <button type="button" onClick={toOrganize}>
-                    <ProgramsLink isShow={isLinkShow} />
-                </button>
             </div>
         </section>
     );

@@ -112,6 +112,11 @@ button {
     font-size: inherit;
 }
 
+button {
+    padding: 0;
+    background: none;
+}
+
 .input-wrapper {
     position: relative;
     display: flex;

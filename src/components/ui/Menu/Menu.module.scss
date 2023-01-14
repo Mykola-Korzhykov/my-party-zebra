@@ -10,6 +10,10 @@
             &:not(:last-of-type) {
                 margin-right: 30px;
 
+                @include mq(1100) {
+                    margin-right: 15px;
+                }
+
                 @include mq($tablet-large) {
                     margin-right: 0;
                 }

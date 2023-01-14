@@ -62,6 +62,7 @@
     @include flexible();
     
     @include mq($tablet-large) {
+        width: 100%;
         flex-wrap: wrap;
     }
 }
@@ -147,5 +148,42 @@
     @include mq($tablet-large) {
         background: var(--theme-color);
         color: #fff !important;
+    }
+}
+
+.row {
+    @include flexible();
+    flex-direction: column
+}
+
+.button {
+    @include font-size(18px);
+    padding: 12px 20px;
+    border-radius: 70px;
+    margin-left: 20px;
+
+    @include mq(1300) {
+        margin-top: 10px;
+        margin-left: 0;
+    }
+
+    @include mq($tablet-large) {
+        display: block;
+        position: absolute;
+        top: -60px;
+        right: 100px;
+        margin-top: 0;
+    }
+
+    @include mq($phablet) {
+        right: 60px;
+    }
+
+    @include mq($phone) {
+        @include font-size(16px);
+    }
+
+    @include mq(350) {
+        display: none;
     }
 }

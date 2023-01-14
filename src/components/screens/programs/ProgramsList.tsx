@@ -13,17 +13,18 @@ type Props = {
     list: IProgramsItem[];
     selectButtonText: string;
     selectedButtonText: string;
+    selectedList: ISelectedProgramsItem[];
     setSelectedList: Dispatch<SetStateAction<ISelectedProgramsItem[]>>;
 }
 
-const ProgramsList: FC<Props> = ({list, selectButtonText, selectedButtonText, setSelectedList}) => {
+const ProgramsList: FC<Props> = ({list, selectButtonText, selectedButtonText, selectedList, setSelectedList}) => {
     return (
         <ul className={styles.list}>
             {list.map((item, index) => (
                 <ProgramsItem content={item} 
                               selectButtonText={selectButtonText} 
                               selectedButtonText={selectedButtonText} 
-                              setSelectedList={setSelectedList} key={index} />
+                              selectedList={selectedList} setSelectedList={setSelectedList} key={index} />
             ))}
         </ul>
     );
