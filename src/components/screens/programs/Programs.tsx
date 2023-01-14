@@ -47,7 +47,7 @@ const Programs: FC<Props> = ({data}) => {
 
     const handleClick = () => {
         setIsListFull(!isListFull);
-        sectionRef?.current?.scrollIntoView({behavior: 'smooth'});
+        if(isListFull) sectionRef?.current?.scrollIntoView({behavior: 'smooth'});
     };
 
     const toOrganize = () => {

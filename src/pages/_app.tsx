@@ -6,6 +6,7 @@ import AOS from 'aos';
 
 import { hotjar } from 'react-hotjar'
 import { GoogleAnalytics } from "nextjs-google-analytics";
+import { Analytics } from '@vercel/analytics/react';
 
 import axios from 'axios';
 import api from '@shared/http';
@@ -105,6 +106,7 @@ const CustomApp = ({Component, pageProps, env, props}: AppOwnProps & AppProps) =
       <Provider store={store}>
         <Layout data={{meta: metaData, layout: layoutData, locales: localesData}}>
           <GoogleAnalytics trackPageViews />
+          <Analytics />
           <Component {...pageProps} />
         </Layout>
       </Provider>

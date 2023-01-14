@@ -175,3 +175,9 @@
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
+.warning {
+    @include color-opacity($black-1, 0.3);
+    @include font-size(18px);
+    margin-top: 20px;
+}

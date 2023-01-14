@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { useAppSelector } from '@store/hook';
+import { useRouter } from 'next/router';
 
 import { setServiceSelect, setProgramsSelect } from '@store/slices/formSlice';
 
@@ -26,6 +27,8 @@ type Props = {
 
 const SecondStep: FC<Props> = ({isActive, serviceSelect, programs, programsSelect}) => {
     const [selectedPrograms, setSelectedPrograms] = useState<ISelectedProgramsItem[]>([]);
+
+    const {locale} = useRouter();
 
     const serviceSelectState = useAppSelector(state => state.form.serviceSelect);
     const programsSelectState = useAppSelector(state => state.form.programsSelect);
@@ -97,6 +100,11 @@ const SecondStep: FC<Props> = ({isActive, serviceSelect, programs, programsSelec
                     </li>
                 ))}
             </ul>
+
+            {selectedPrograms.length > 0 && <p className={styles.warning}>
+                {locale === 'en' && 'Click the second time on element, to add more animators'}
+                {locale === 'ru' && 'Нажмите второй раз на элемент, для того чтобы добавить больше аниматоров'}
+            </p>}
         </div>
     );
 }
