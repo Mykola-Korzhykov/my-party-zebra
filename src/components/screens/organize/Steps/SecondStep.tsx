@@ -8,6 +8,7 @@ import sortPrograms from '@helpers/sortPrograms';
 import removeObjectsByValues from '@helpers/removeObjectsByValues';
 import extractPropertyValues from '@helpers/extractPropertyValues';
 import updateObjectProperty from '@helpers/updateObjectProperty';
+import getEntertainers from '@helpers/getEntertainers';
 
 import IProgramsItem from '@shared/interfaces/Data/Programs/IProgramsItem';
 import ISelectedProgramsItem from '@shared/interfaces/Data/Programs/ISelectedProgramsItem';
@@ -23,9 +24,10 @@ type Props = {
     serviceSelect: ISelect;
     programs: IProgramsItem[];
     programsSelect: ISelect;
+    animatorsMessage: string;
 }
 
-const SecondStep: FC<Props> = ({isActive, serviceSelect, programs, programsSelect}) => {
+const SecondStep: FC<Props> = ({isActive, serviceSelect, programs, programsSelect, animatorsMessage}) => {
     const [selectedPrograms, setSelectedPrograms] = useState<ISelectedProgramsItem[]>([]);
 
     const {locale} = useRouter();
@@ -41,6 +43,7 @@ const SecondStep: FC<Props> = ({isActive, serviceSelect, programs, programsSelec
     const updateSelectedPrograms = () => {
         const selectedPrograms: ISelectedProgramsItem[] = getSelectedPrograms();
         if(selectedPrograms) {
+            setServiceSelect({...serviceSelectState, value: serviceSelect.list[0].value});
             setSelectedPrograms(selectedPrograms);
             changeSelectedPrograms(selectedPrograms);
         }
@@ -78,6 +81,14 @@ const SecondStep: FC<Props> = ({isActive, serviceSelect, programs, programsSelec
     }, [programsSelectState]);
 
     useEffect(() => {
+        const {value} = serviceSelectState;
+        if(value !== serviceSelect.list[0].value) {
+            localStorage.removeItem('selectedPrograms');
+            setSelectedPrograms([]);
+        }
+    }, [serviceSelectState]);
+
+    useEffect(() => {
         updateSelectedPrograms();
     }, []);
 
@@ -87,23 +98,23 @@ const SecondStep: FC<Props> = ({isActive, serviceSelect, programs, programsSelec
                 <Select label={serviceSelect.label} placeholder={serviceSelect.placeholder} list={serviceSelect.list} 
                         stateValue={serviceSelectState} setStateValue={setServiceSelect} id="service-select" />
 
+                {(serviceSelectState.value === serviceSelect.list[0].value) && 
                 <Select label={programsSelect.label} placeholder={programsSelect.placeholder} 
                         list={removeObjectsByValues(extractPropertyValues(selectedPrograms, 'title'), sortPrograms(programs))}
-                        stateValue={programsSelectState} setStateValue={setProgramsSelect} clearAfterClick={true} id="programs-select" />
+                        stateValue={programsSelectState} setStateValue={setProgramsSelect} clearAfterClick={true} id="programs-select" />}
             </div>
 
             <ul className={styles.programs}>
                 {selectedPrograms && selectedPrograms.map(({title, animatorsCount}, index) => (
                     <li className={styles.programsItem} onClick={e => addAnimator(e, title, animatorsCount)} key={index}>
-                        {title}, {animatorsCount} animators
+                        {title}, {getEntertainers(animatorsCount)}
                         <RemoveIcon handleClick={() => removeItem(title)} />
                     </li>
                 ))}
             </ul>
 
             {selectedPrograms.length > 0 && <p className={styles.warning}>
-                {locale === 'en' && 'Click the second time on element, to add more animators'}
-                {locale === 'ru' && 'Нажмите второй раз на элемент, для того чтобы добавить больше аниматоров'}
+                {animatorsMessage}
             </p>}
         </div>
     );

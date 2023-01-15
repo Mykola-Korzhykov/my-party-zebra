@@ -20,10 +20,11 @@ type Props = {
     menu: IMenuItem[];
     locales: ILocale[];
     isSticky: boolean;
+    buttonText: string;
     headerRef: RefObject<HTMLElement>
 }
 
-const Header: FC<Props> = ({siteName, menu, locales, isSticky, headerRef}) => {
+const Header: FC<Props> = ({siteName, menu, locales, isSticky, buttonText, headerRef}) => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
     const windowSize = useWindowSize();
 
@@ -47,13 +48,13 @@ const Header: FC<Props> = ({siteName, menu, locales, isSticky, headerRef}) => {
 
                             {(pathname !== '/organize' && (windowSize.width > 992 && windowSize.width <= 1300)) &&
                                 <Button type="link" variety="theme"
-                                        href="/organize" text={locale === 'ru' ? 'Забронировать' : 'Book a party'} 
+                                        href="/organize" text={buttonText} 
                                         customClass={styles.button} />}
                         </div>
 
                         {(pathname !== '/organize' && (windowSize.width < 993 || windowSize.width > 1300)) &&
                                 <Button type="link" variety="theme"
-                                        href="/organize" text={locale === 'ru' ? 'Забронировать' : 'Book a party'} 
+                                        href="/organize" text={buttonText} 
                                         customClass={styles.button} />}
 
                         <button type="button" 

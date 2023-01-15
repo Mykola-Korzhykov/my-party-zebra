@@ -18,17 +18,17 @@ const FooterSocials: FC<Props> = ({socials}) => {
     return (
         <ul className={styles.socials}>
             <li className={styles.socialsItem}>
-                <a href={instagram} className={styles.socialsLink}>
+                <a href={instagram} target="_blank" rel="nofollow noopener noreferrer" className={styles.socialsLink}>
                     <InstagramIcon />
                 </a>
             </li>
             <li className={styles.socialsItem}>
-                <a href={facebook} className={styles.socialsLink}>
+                <a href={facebook} target="_blank" rel="nofollow noopener noreferrer" className={styles.socialsLink}>
                     <FacebookIcon />
                 </a>
             </li>
             <li className={styles.socialsItem}>
-                <a href={tiktok} className={styles.socialsLink}>
+                <a href={tiktok} target="_blank" rel="nofollow noopener noreferrer" className={styles.socialsLink}>
                     <TikTokIcon />
                 </a>
             </li>

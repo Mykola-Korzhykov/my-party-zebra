@@ -53,6 +53,10 @@ const Select: FC<Props> = ({label, list, placeholder, stateValue, setStateValue,
         setSortList(list);
 
         if(id === 'service-select' && localStorage.getItem('isDecor') === 'true') {
+            dispatch(setStateValue({value: list[1].text}));
+        }
+
+        if(id === 'service-select' && localStorage.getItem('isSeasonal') === 'true') {
             dispatch(setStateValue({value: list[list.length - 1].text}));
         }
     }, [list]);

@@ -62,7 +62,7 @@ const ProgramsItem: FC<Props> = ({content, selectButtonText, selectedButtonText,
                         variety="themeGhost" 
                         text={isSelected ? selectedButtonText : selectButtonText} 
                         handleClick={chooseProgram} 
-                        customClass={`${styles.chooseButton} ${isSelected ? styles.chooseActiveButton : ''} ${(!isSelected && selectedList.length > 0) ? styles.hide : ''}`} />
+                        customClass={`${styles.chooseButton} ${isSelected ? styles.chooseActiveButton : ''}`} />
 
                 <button type="button" onClick={toOrganize}>
                     <ProgramsLink isShow={isSelected} />

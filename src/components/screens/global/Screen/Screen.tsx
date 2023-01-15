@@ -35,7 +35,16 @@ const Screen: FC<Props> = ({data, themeColor}) => {
 
     const toOrganize = () => {
         router.push({pathname: '/organize'});
-        localStorage.setItem('isDecor', 'true');
+
+        if(router.pathname === '/decor') {
+            localStorage.setItem('isDecor', 'true');
+            localStorage.removeItem('isSeasonal');
+        }
+
+        if(router.pathname === '/seasonal') {
+            localStorage.setItem('isSeasonal', 'true');
+            localStorage.removeItem('isDecor');
+        }
     }
 
     return (
@@ -49,7 +58,7 @@ const Screen: FC<Props> = ({data, themeColor}) => {
 
                         <p className={styles.description}>{description}</p>
 
-                        {(buttonType === 'link' && button.href === '/organize' && router.pathname === '/decor') ?
+                        {(buttonType === 'link' && button.href === '/organize' && (router.pathname === '/decor' || router.pathname === '/seasonal')) ?
                         <Button type="button" variety="theme" text={button.text} handleClick={toOrganize} customClass={styles.button} /> :
                         <Button type={buttonType} variety="theme" text={button.text} href={button.href}  customClass={styles.button} />}
                     </div>

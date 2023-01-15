@@ -57,6 +57,7 @@ const CustomApp = ({Component, pageProps, env, props}: AppOwnProps & AppProps) =
     AOS.init({once: true});
     localStorage.removeItem('selectedPrograms');
     localStorage.removeItem('isDecor');
+    localStorage.removeItem('isSeasonal');
   }, []);
 
   return (

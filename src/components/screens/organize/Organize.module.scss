@@ -163,15 +163,30 @@
 
 .flex {
     display: grid;
-    grid-template-columns: repeat(2, 0.2fr);
+    grid-template-columns: repeat(3, 0.4fr);
     gap: 30px;
     margin-top: 30px;
 
-    @include mq($phablet) {
+    @include mq($tablet) {
         grid-template-columns: repeat(2, 0.5fr);
     }
 
     @include mq($phone) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.secondFlex {
+    display: grid;
+    grid-template-columns: repeat(2, 0.3fr);
+    gap: 30px;
+    margin-top: 30px;
+
+    @include mq($laptop) {
+        grid-template-columns: repeat(2, 0.5fr);
+    }
+
+    @include mq($tablet) {
         grid-template-columns: repeat(1, 1fr);
     }
 }

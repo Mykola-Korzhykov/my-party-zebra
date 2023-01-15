@@ -29,6 +29,7 @@ const Offer: FC<Props> = ({data}) => {
     const toOrganize = () => {
         Router.push({pathname: '/organize'});
         localStorage.setItem('isDecor', 'true');
+        localStorage.removeItem('isSeasonal');
     }
 
     return (

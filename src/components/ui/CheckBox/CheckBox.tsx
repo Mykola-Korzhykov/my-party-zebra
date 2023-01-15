@@ -22,7 +22,7 @@ const CheckBox: FC<Props> = ({value, stateValue, setStateValue, isDefault = fals
     }
 
     useEffect(() => {
-        if(isDefault) dispatch(setStateValue({value}));
+        if(isDefault) dispatch(setStateValue({...stateValue, value}));
     }, [value]);
 
     return (

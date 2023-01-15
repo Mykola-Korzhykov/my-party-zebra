@@ -51,7 +51,7 @@ const Layout: FC<Props> = ({data, children}) => {
     return (
         <div className="next-page" data-path={pathname}>
             <Loader />
-            <Header siteName={siteName} menu={menu} locales={data.locales} isSticky={isSticky} headerRef={headerRef} />
+            <Header siteName={siteName} menu={menu} locales={data.locales} buttonText={data.layout.header.buttonText} isSticky={isSticky} headerRef={headerRef} />
             <main style={{paddingTop: isSticky ? headerHeight : 0}}>
                 {children}
             </main>

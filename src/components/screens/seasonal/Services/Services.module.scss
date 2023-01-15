@@ -73,6 +73,7 @@
     @include font-size(18px);
     @include transition();
     margin-top: 8px;
+    cursor: pointer;
 
     &:hover {
         @include link-hover();

@@ -14,10 +14,13 @@ interface FormState {
     otherVendors: ICheckBoxState;
     nameInput: IInputState;
     phoneInput: IInputState;
-    parentSelect: ISelectState;
+    emailInput: IInputState;
     childrenSelect: ISelectState;
     dateInput: IInputState;
     timeInput: IInputState;
+    specialInput: IInputState;
+    placeParty: ICheckBoxState;
+    otherDecors: ICheckBoxState;
 };
 
 const initialState: FormState = { 
@@ -45,8 +48,8 @@ const initialState: FormState = {
     phoneInput: {
         value: '', id: 'phone-input', text: 'Phone', smile: '📞'
     },
-    parentSelect: {
-        value: '', id: 'parent-select', text: 'Number of parents', smile: '👩'
+    emailInput: {
+        value: '', id: 'email-input', text: 'E-Mail', smile: '📧'
     },
     childrenSelect: {
         value: '', id: 'children-select', text: 'Number of children', smile: '🧒'
@@ -56,6 +59,15 @@ const initialState: FormState = {
     },
     timeInput: {
         value: '', id: 'time-input', text: 'Time', smile: '⏱️'
+    },
+    specialInput: {
+        value: '', id: 'special-input', text: 'Special Requests', smile: '❔'
+    },
+    placeParty: {
+        value: '', text: 'Place', smile: '🏡'
+    },
+    otherDecors: {
+        value: '', text: 'Decors', smile: '🎈'
     }
 };
 
@@ -87,8 +99,8 @@ const formSlice = createSlice({
     setPhoneInput: (state, action) => {
         state.phoneInput = action.payload;
     },
-    setParentSelect: (state, action) => {
-        state.parentSelect = action.payload;
+    setEmailInput: (state, action) => {
+        state.emailInput = action.payload;
     },
     setChildrenSelect: (state, action) => {
         state.childrenSelect = action.payload;
@@ -98,12 +110,22 @@ const formSlice = createSlice({
     },
     setTimeInput: (state, action) => {
         state.timeInput = action.payload;
+    },
+    setSpecialInput: (state, action) => {
+        state.specialInput = action.payload;
+    },
+    setPlaceParty: (state, action) => {
+        state.placeParty = action.payload;
+    },
+    setOtherDecors: (state, action) => {
+        state.otherDecors = action.payload;
     }
   }
 });
 
 export const { setThemeInput, setVenueInput, setBudgetSelect, 
                setServiceSelect, setProgramsSelect, setOtherVendors, 
-               setNameInput, setPhoneInput, setParentSelect, setChildrenSelect, setDateInput, setTimeInput } = formSlice.actions;
+               setNameInput, setPhoneInput, setEmailInput, setChildrenSelect, setDateInput, setTimeInput, 
+               setSpecialInput, setPlaceParty, setOtherDecors } = formSlice.actions;
 
 export default formSlice.reducer;

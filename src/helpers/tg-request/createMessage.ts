@@ -5,6 +5,7 @@ const createMessage = (fields: IFields) => {
 
     for(const key in fields) {
         const field = fields[key];
+        console.log(field)
         message += `${field.smile} <b>${field.text}:</b> ${field.value}\n`;
     }
     

@@ -52,10 +52,13 @@ const Organize: FC<Props> = ({programs, content}) => {
     const programsSelect = useAppSelector(state => state.form.programsSelect); // 2 step
     const nameInput = useAppSelector(state => state.form.nameInput); // 3 step
     const phoneInput = useAppSelector(state => state.form.phoneInput); // 3 step
-    const parentSelect = useAppSelector(state => state.form.parentSelect); // 3 step
+    const emailInput = useAppSelector(state => state.form.emailInput); // 3 step
     const childrenSelect = useAppSelector(state => state.form.childrenSelect); // 3 step
     const dateInput = useAppSelector(state => state.form.dateInput); // 3 step
     const timeInput = useAppSelector(state => state.form.timeInput); // 3 step
+    const specialInput = useAppSelector(state => state.form.specialInput); // 3 step
+    const placeParty = useAppSelector(state => state.form.placeParty); // 3 step
+    const otherDecors = useAppSelector(state => state.form.otherDecors); // 3 step
 
     let navRef: HTMLUListElement = null;
 
@@ -86,7 +89,9 @@ const Organize: FC<Props> = ({programs, content}) => {
 
             if(currentStep === 2) {
                 let fields: any = {serviceSelect};
-                if(!localStorage.getItem('isDecor')) fields['programsSelect'] = {...programsSelect, id: 'programs-select', value: JSON.parse(localStorage.getItem('selectedPrograms'))};
+                if(serviceSelect.value === content.serviceSelect.list[0].value) {
+                    fields['programsSelect'] = {...programsSelect, id: 'programs-select', value: JSON.parse(localStorage.getItem('selectedPrograms'))};
+                }
 
                 const validateResult = validateFields(fields);
                 if(!validateResult) return;
@@ -105,13 +110,15 @@ const Organize: FC<Props> = ({programs, content}) => {
     }
 
     const finish = () => {
-        const validateResult = validateFields({nameInput, phoneInput, parentSelect, childrenSelect, dateInput, timeInput});
+        const validateResult = validateFields({nameInput, phoneInput, emailInput, childrenSelect, dateInput, timeInput});
         if(!validateResult) return;
 
         const programsList = JSON.parse(localStorage.getItem('selectedPrograms'));
-        const message = createMessage({themeInput, venueInput, budgetSelect, serviceSelect, 
-                                       programsSelect: {...programsSelect, value: getPropertyValues(programsList, 'title', 'animatorsCount')}, 
-                                       nameInput, phoneInput, parentSelect, childrenSelect, dateInput, timeInput});
+        const message = createMessage({themeInput, venueInput, budgetSelect, otherVendors, serviceSelect, 
+                                       programsSelect: {...programsSelect, value: programsList ? getPropertyValues(programsList, 'title', 'animatorsCount') : 'Empty'}, 
+                                       nameInput, phoneInput, emailInput, childrenSelect, dateInput, timeInput, 
+                                       specialInput: {...specialInput, value: specialInput.value ? specialInput.value : 'Empty'}, 
+                                       placeParty, otherDecors});
 
         sendMessage(message);
 
@@ -126,6 +133,7 @@ const Organize: FC<Props> = ({programs, content}) => {
 
             localStorage.removeItem('selectedPrograms');
             localStorage.removeItem('isDecor');
+            localStorage.removeItem('isSeasonal');
 
             Router.push({pathname: '/'});
         });
@@ -143,11 +151,12 @@ const Organize: FC<Props> = ({programs, content}) => {
 
                     <SecondStep isActive={currentStep === 2} 
                                 serviceSelect={content.serviceSelect} 
-                                programs={programs} programsSelect={content.programsSelect} />
+                                programs={programs} programsSelect={content.programsSelect} animatorsMessage={content.animatorsMessage} />
                                 
                     <ThirdStep isActive={currentStep === 3} nameInput={content.nameInput} phoneInput={content.phoneInput}
-                               parentSelect={content.parentSelect} childrenSelect={content.childrenSelect}
-                               dateInput={content.dateInput} timeInput={content.timeInput} />
+                               emailInput={content.emailInput} childrenSelect={content.childrenSelect}
+                               dateInput={content.dateInput} timeInput={content.timeInput} specialInput={content.specialInput}
+                               placeParty={content.placeParty} otherDecors={content.otherDecors} />
                 </div>
 
                 <div className={styles.buttons}>

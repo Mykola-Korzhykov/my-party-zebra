@@ -23,6 +23,10 @@
     font-weight: 400;
     margin-left: 10px;
     user-select: none;
+
+    @include mq($phone) {
+        @include font-size(18px);
+    }
 }
 
 .active {

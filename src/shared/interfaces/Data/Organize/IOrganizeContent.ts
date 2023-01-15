@@ -21,11 +21,15 @@ export default interface IOrganizeContent {
     programsSelect: ISelect;
     nameInput: IInput;
     phoneInput: IInput;
-    parentSelect: ISelect;
+    emailInput: IInput;
     childrenSelect: ISelect;
     dateInput: IInput;
     timeInput: IInput;
+    specialInput: IInput;
+    placeParty: ICheckBox;
+    otherDecors: ICheckBox;
     modalTitle: string;
     modalDescription: string;
     modalButtonText: string;
+    animatorsMessage: string;
 }
