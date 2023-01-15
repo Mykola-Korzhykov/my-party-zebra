@@ -181,17 +181,6 @@
       "component": "inputs.input",
       "required": true
     },
-    "parentSelect": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "inputs.select",
-      "required": true
-    },
     "childrenSelect": {
       "type": "component",
       "repeatable": false,
@@ -261,6 +250,59 @@
       "required": true
     },
     "modalButtonText": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "placeParty": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "inputs.check-box",
+      "required": true
+    },
+    "otherDecors": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "inputs.check-box",
+      "required": true
+    },
+    "specialInput": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "inputs.input",
+      "required": true
+    },
+    "emailInput": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "inputs.input",
+      "required": true
+    },
+    "animatorsMessage": {
       "pluginOptions": {
         "i18n": {
           "localized": true
