@@ -80,14 +80,6 @@ const SecondStep: FC<Props> = ({isActive, serviceSelect, programs, programsSelec
     }, [programsSelectState]);
 
     useEffect(() => {
-        const {value, text} = serviceSelectState;
-        if(value !== serviceSelect.list[0].text && text !== serviceSelect.label) {
-            localStorage.removeItem('selectedPrograms');
-            setSelectedPrograms([]);
-        }
-    }, [serviceSelectState]);
-
-    useEffect(() => {
         updateSelectedPrograms();
     }, []);
 
@@ -95,7 +87,7 @@ const SecondStep: FC<Props> = ({isActive, serviceSelect, programs, programsSelec
         <div className={`${styles.step} ${isActive ? styles.stepActive : ''}`}>
             <div className={styles.selectRow}>
                 <Select label={serviceSelect.label} placeholder={serviceSelect.placeholder} list={serviceSelect.list} 
-                        stateValue={serviceSelectState} setStateValue={setServiceSelect} id="service-select" />
+                        stateValue={serviceSelectState} setStateValue={setServiceSelect} setSelectedPrograms={setSelectedPrograms} id="service-select" />
 
                 {(serviceSelectState.value === serviceSelect.list[0].value) && 
                 <Select label={programsSelect.label} placeholder={programsSelect.placeholder} 

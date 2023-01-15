@@ -1,8 +1,9 @@
-import { FC, useState, RefObject, useEffect, useRef } from 'react';
+import { FC, Dispatch, useState, RefObject, useEffect, useRef, SetStateAction } from 'react';
 import { useAppDispatch } from '@store/hook';
 
 import ISelectState from '@shared/interfaces/States/ISelectState';
 import ISelectItem from '@shared/interfaces/Select/ISelectItem';
+import ISelectedProgramsItem from '@shared/interfaces/Data/Programs/ISelectedProgramsItem';
 
 import SelectArrow from '@components/ui/Select/SelectArrow';
 
@@ -17,9 +18,10 @@ type Props = {
     stateValue: ISelectState;
     setStateValue: any;
     clearAfterClick?: boolean;
+    setSelectedPrograms?: Dispatch<SetStateAction<ISelectedProgramsItem[]>>;
 }
 
-const Select: FC<Props> = ({label, list, placeholder, stateValue, setStateValue, customClass = '', id, clearAfterClick = false}) => {
+const Select: FC<Props> = ({label, list, placeholder, stateValue, setStateValue, customClass = '', id, setSelectedPrograms, clearAfterClick = false}) => {
     const dispatch = useAppDispatch();
 
     const [sortList, setSortList] = useState<ISelectItem[]>([]);
@@ -40,6 +42,11 @@ const Select: FC<Props> = ({label, list, placeholder, stateValue, setStateValue,
 
     const selectItem = (value: string, index: number) => {
         const isProgramsSelect = id === 'programs-select';
+
+        if(id === 'service-select' && value !== list[0].text) {
+            localStorage.removeItem('selectedPrograms');
+            setSelectedPrograms([]);
+        }
 
         setActiveIndex(index);
         setValue(!clearAfterClick ? value : null);
