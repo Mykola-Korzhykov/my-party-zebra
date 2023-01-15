@@ -43,7 +43,6 @@ const SecondStep: FC<Props> = ({isActive, serviceSelect, programs, programsSelec
     const updateSelectedPrograms = () => {
         const selectedPrograms: ISelectedProgramsItem[] = getSelectedPrograms();
         if(selectedPrograms) {
-            setServiceSelect({...serviceSelectState, value: serviceSelect.list[0].value});
             setSelectedPrograms(selectedPrograms);
             changeSelectedPrograms(selectedPrograms);
         }
@@ -80,13 +79,13 @@ const SecondStep: FC<Props> = ({isActive, serviceSelect, programs, programsSelec
         }
     }, [programsSelectState]);
 
-    useEffect(() => {
+    /*useEffect(() => {
         const {value} = serviceSelectState;
         if(value !== serviceSelect.list[0].value) {
             localStorage.removeItem('selectedPrograms');
             setSelectedPrograms([]);
         }
-    }, [serviceSelectState]);
+    }, [serviceSelectState]);*/
 
     useEffect(() => {
         updateSelectedPrograms();

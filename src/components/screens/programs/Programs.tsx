@@ -49,7 +49,11 @@ const Programs: FC<Props> = ({data}) => {
     };
 
     useEffect(() => {
-        localStorage.setItem('selectedPrograms', JSON.stringify([]));
+        localStorage.setItem('selectedPrograms', JSON.stringify(selectedList));
+    }, [selectedList]);
+
+    useEffect(() => {
+        localStorage.removeItem('selectedPrograms');
     }, []);
 
     return (
