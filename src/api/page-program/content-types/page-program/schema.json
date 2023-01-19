@@ -4,7 +4,8 @@
   "info": {
     "singularName": "page-program",
     "pluralName": "page-programs",
-    "displayName": "Page [Programs]"
+    "displayName": "Page [Programs]",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -35,6 +36,17 @@
         }
       },
       "component": "sections.section-screen",
+      "required": true
+    },
+    "gallery": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "global.gallery",
       "required": true
     }
   }

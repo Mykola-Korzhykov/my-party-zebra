@@ -69,6 +69,17 @@
         }
       },
       "component": "global.meta-for-page"
+    },
+    "gallery": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "global.gallery",
+      "required": true
     }
   }
 }

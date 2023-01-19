@@ -48,6 +48,17 @@
       },
       "component": "sections.section-offer",
       "required": true
+    },
+    "gallery": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "global.gallery",
+      "required": true
     }
   }
 }
