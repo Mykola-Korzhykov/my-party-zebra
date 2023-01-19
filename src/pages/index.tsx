@@ -24,17 +24,16 @@ import Faq from '@components/screens/global/Faq/Faq'
 export const getStaticProps: GetStaticProps = async ({locale}) => {
   const pageContent = await api.get(`/page-home?locale=${locale}`);
   const someList = await api.get(`/some-list-button?locale=${locale}`);
-  const gallery = await api.get(`/gallery?locale=${locale}`);
   const offer = await api.get(`/offer?locale=${locale}`);
   const guarantees = await api.get(`/guarantee?locale=${locale}`);
   const reviews = await api.get(`/review?locale=${locale}`);
   const faq = await api.get(`/faq?locale=${locale}`);
 
-  return {props: {content: pageContent, someList, gallery, offer, guarantees, reviews, faq}};
+  return {props: {content: pageContent, someList, offer, guarantees, reviews, faq}};
 }
 
-const Home: NextPage<any> = ({content, someList, gallery, offer, guarantees, reviews, faq}) => {
-  const {meta, firstScreen, services, features, ageGroups} = content;
+const Home: NextPage<any> = ({content, someList, offer, guarantees, reviews, faq}) => {
+  const {meta, firstScreen, services, features, gallery, ageGroups} = content;
 
   const themeColor = meta.theme.color;
   const themeColorHEX = themeColors[themeColor];

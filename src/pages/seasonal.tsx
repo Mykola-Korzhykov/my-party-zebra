@@ -25,17 +25,16 @@ import getFullTitle from '@helpers/getFullTitle'
 
 export const getStaticProps: GetStaticProps = async ({locale}) => {
   const pageContent = await api.get(`/page-seasonal?locale=${locale}`);
-  const gallery = await api.get(`/gallery?locale=${locale}`);
   const offer = await api.get(`/offer?locale=${locale}`);
   const guarantees = await api.get(`/guarantee?locale=${locale}`);
   const reviews = await api.get(`/review?locale=${locale}`);
   const faq = await api.get(`/faq?locale=${locale}`);
 
-  return {props: {content: pageContent, gallery, offer, guarantees, reviews, faq}};
+  return {props: {content: pageContent, offer, guarantees, reviews, faq}};
 }
 
-const Seasonal: NextPage<any> = ({content, gallery, offer, guarantees, reviews, faq}) => {
-  const {meta, screen, services} = content;
+const Seasonal: NextPage<any> = ({content, offer, guarantees, reviews, faq}) => {
+  const {meta, screen, services, gallery} = content;
   const {title, colorTitle, colorTitlePlace, description} = screen;
 
   const fullTitle = getFullTitle(title, colorTitle, colorTitlePlace);

@@ -97,7 +97,7 @@
 
 .cubicAfter {
     bottom: -15px;
-    right: 0;
+    right: -30px;
     transform: rotateX(-180deg) rotateY(-180deg);
 
     @include mq($tablet) {

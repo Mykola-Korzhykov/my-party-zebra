@@ -21,8 +21,7 @@ body {
     @include font-size($font-size);
     font-weight: $font-weight;
     color: $font-color;
-    overflow-x: hidden;
-    overflow: auto !important;
+    overflow-x: hidden !important;
     padding-right: 0 !important;
 }
 
