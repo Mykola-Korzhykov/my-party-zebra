@@ -191,6 +191,10 @@
     & path {
         stroke: var(--theme-color);
     }
+
+    & rect {
+        stroke: var(--theme-color);
+    }
 }
 
 .instagramIcon {

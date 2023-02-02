@@ -106,7 +106,6 @@ const CustomApp = ({Component, pageProps, env, props}: AppOwnProps & AppProps) =
 
       <Provider store={store}>
         <Layout data={{meta: metaData, layout: layoutData, locales: localesData}}>
-          <GoogleAnalytics trackPageViews />
           <Analytics />
           <Component {...pageProps} />
         </Layout>
