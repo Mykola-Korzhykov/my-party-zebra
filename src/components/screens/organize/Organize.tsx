@@ -167,7 +167,7 @@ const Organize: FC<Props> = ({programs, content}) => {
                     <Button type="button" variety="theme" text={content.nextButton.text} handleClick={nextStep} customClass={styles.next} />} 
 
                     {(currentStep === 3) &&
-                    <Button type="button" variety="theme" text={content.finishButton.text} handleClick={finish} customClass={styles.next} />} 
+                    <Button type="button" variety="theme" id="finish-button" text={content.finishButton.text} handleClick={finish} customClass={styles.next} />} 
                 </div>
             </div>
         </section>
