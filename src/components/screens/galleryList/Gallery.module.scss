@@ -1,0 +1,47 @@
+/* ---- Gallery ---- */
+@import "@resources";
+
+.section {
+  padding-bottom: 0px;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+
+  @include mq($tablet-large) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include mq($phablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.image {
+  position: relative;
+  width: 100%;
+  height: rem(265);
+
+  & img,
+  & span {
+    border-radius: 20px;
+  }
+
+  @include mq($tablet-large) {
+    height: rem(220);
+  }
+
+  @include mq($phablet) {
+    height: rem(167);
+  }
+}
